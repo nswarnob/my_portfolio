@@ -1,4 +1,5 @@
 import { motion } from "framer-motion";
+import { useEffect, useRef } from "react";
 
 const AnimatedBorderCard = ({
   children,
@@ -17,9 +18,9 @@ const AnimatedBorderCard = ({
     >
       {/* Animated border wrapper - 1px border with gradient glow */}
       <div className={`relative ${rounded} bg-gradient-to-r from-blue-500 via-cyan-400 to-blue-500 p-[1px] overflow-hidden ${className}`}>
-        {/* Inner background - prevents layout shift */}
+        {/* Animated gradient border (always running) */}
         <div
-          className={`absolute inset-0 ${rounded} bg-gradient-to-r from-blue-500 via-cyan-400 to-blue-500 animate-border-move opacity-0 group-hover:opacity-70 transition-opacity duration-300`}
+          className={`absolute inset-0 ${rounded} bg-gradient-to-r from-blue-500 via-cyan-400 to-blue-500 animate-border-move opacity-40 group-hover:opacity-70 transition-opacity duration-300`}
           style={{
             backgroundSize: "200% 200%",
           }}

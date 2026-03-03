@@ -2,6 +2,7 @@ export const data = {
   name: "Sharif Uddin Arnob",
   dob: "2002-10-13", // YYYY-MM-DD
   designation: "Software Developer",
+  photo: "https://images.unsplash.com/photo-1502685104226-ee32379fefbe?w=400&h=400&fit=crop",
 
   about: [
     "Currently freelancing and collaborating with new people to build cool stuff.",

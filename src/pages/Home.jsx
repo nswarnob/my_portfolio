@@ -1,8 +1,6 @@
 import { motion } from "framer-motion";
 import Hero from "../components/Hero";
-import About from "../components/About";
 import Experience from "../components/Experience";
-import Skills from "../components/Skills";
 import Projects from "../components/Projects";
 import Education from "../components/Education";
 import GithubContributions from "../components/GithubContributions";
@@ -16,11 +14,9 @@ const Home = () => {
       transition={{ duration: 0.5 }}
     >
       <Hero />
-      <About />
-      <Experience />
-      <Skills />
-      <Projects />
       <GithubContributions />
+      <Experience />
+      <Projects />
       <Education />
       <Contact />
     </motion.div>

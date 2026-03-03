@@ -1,4 +1,3 @@
-import { motion } from "framer-motion";
 import { data } from "../data/portfolioData";
 
 const Experience = () => {
@@ -7,7 +6,7 @@ const Experience = () => {
   if (!experience || experience.length === 0) return null;
 
   return (
-    <section id="experience" className="py-20 px-4 sm:px-6 lg:px-8">
+    <section id="experience" className="py-16 px-4 sm:px-6 lg:px-8">
       <div className="max-w-6xl mx-auto">
         <motion.h2
           initial={{ opacity: 0 }}

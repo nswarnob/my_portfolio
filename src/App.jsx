@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import "./index.css";
 import Navbar from "./components/Navbar";
@@ -11,6 +11,21 @@ import ProjectDetail from "./pages/ProjectDetail";
 
 function App() {
   const [isDark, setIsDark] = useState(true);
+
+  // read stored preference or system
+  useEffect(() => {
+    const stored = localStorage.getItem('theme');
+    if (stored) {
+      setIsDark(stored === 'dark');
+    } else {
+      const prefers = window.matchMedia('(prefers-color-scheme: dark)').matches;
+      setIsDark(prefers);
+    }
+  }, []);
+
+  useEffect(() => {
+    localStorage.setItem('theme', isDark ? 'dark' : 'light');
+  }, [isDark]);
 
   return (
     <BrowserRouter>

@@ -1,3 +1,4 @@
+import { useMemo } from "react";
 import { motion } from "framer-motion";
 import {
   Github,
@@ -10,27 +11,15 @@ import {
 import { data } from "../data/portfolioData";
 import MeteorBackground from "./MeteorBackground";
 
-const SocialIcon = ({ name, icon: Icon, url }) => (
-  <motion.a
-    href={url}
-    target="_blank"
-    rel="noopener noreferrer"
-    whileHover={{ scale: 1.2, rotate: 10 }}
-    whileTap={{ scale: 0.95 }}
-    className="w-12 h-12 bg-dark-800 hover:bg-blue-600 rounded-full flex items-center justify-center transition-colors"
-    aria-label={name}
-  >
-    <Icon size={24} />
-  </motion.a>
-);
-
 const Hero = () => {
   const { name, dob, about, socials, skills, photo } = data;
 
-  const birth = new Date(dob);
-  const age = Math.floor(
-    (Date.now() - birth.getTime()) / (1000 * 60 * 60 * 24 * 365.25),
-  );
+  const age = useMemo(() => {
+    const birth = new Date(dob);
+    return Math.floor(
+      (Date.now() - birth.getTime()) / (1000 * 60 * 60 * 24 * 365.25),
+    );
+  }, [dob]);
 
   const socialIcons = {
     FiGithub: Github,
@@ -57,7 +46,7 @@ const Hero = () => {
           initial="hidden"
           whileInView="show"
           viewport={{ once: true }}
-          className="space-y-6 text-left"
+          className="space-y-6 text-left flex-1"
         >
           <motion.h1
             variants={item}
@@ -103,13 +92,15 @@ const Hero = () => {
             </div>
           </motion.div>
         </motion.div>
-        <div className="hidden lg:block absolute right-0 top-1/4">
-          <img
-            src={photo}
-            alt={name}
-            className="w-40 h-40 rounded-full border-4 border-yellow-400 object-cover"
-          />
-        </div>
+        {photo && (
+          <div className="hidden lg:block ml-8 w-32 h-32 md:w-40 md:h-40 flex-shrink-0">
+            <img
+              src={photo}
+              alt={name}
+              className="w-full h-full rounded-full border-4 border-yellow-400 object-cover"
+            />
+          </div>
+        )}
       </div>
     </section>
   );

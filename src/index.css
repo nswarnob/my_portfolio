@@ -1,37 +1,47 @@
+/* stylelint-disable-next-line at-rule-no-unknown */
 @tailwind base;
+/* stylelint-disable-next-line at-rule-no-unknown */
 @tailwind components;
+/* stylelint-disable-next-line at-rule-no-unknown */
 @tailwind utilities;
 
 * {
+  /* stylelint-disable-next-line at-rule-no-unknown */
   @apply transition-colors;
 }
 
 /* Custom scrollbar */
 ::-webkit-scrollbar {
+  /* stylelint-disable-next-line at-rule-no-unknown */
   @apply w-2;
 }
 
 ::-webkit-scrollbar-track {
+  /* stylelint-disable-next-line at-rule-no-unknown */
   @apply bg-dark-900;
 }
 
 ::-webkit-scrollbar-thumb {
+  /* stylelint-disable-next-line at-rule-no-unknown */
   @apply bg-dark-600 rounded-lg hover:bg-dark-500;
 }
 
 /* Reduced motion support */
 @media (prefers-reduced-motion: reduce) {
   * {
+    /* stylelint-disable-next-line at-rule-no-unknown */
     @apply !transition-none !animate-none;
   }
 }
 
 /* Smooth scroll behavior */
 html {
+  /* stylelint-disable-next-line at-rule-no-unknown */
   @apply scroll-smooth;
 }
 
 body {
+  /* stylelint-disable-next-line at-rule-no-unknown */
   @apply bg-dark-950 text-dark-100 font-sans;
 }
 
@@ -43,6 +53,7 @@ body {
 
 @media (prefers-reduced-motion: reduce) {
   .animate-border-move {
+    /* stylelint-disable-next-line at-rule-no-unknown */
     @apply !animate-none;
     opacity: 0.3;
   }
