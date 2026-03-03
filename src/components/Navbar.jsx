@@ -1,7 +1,8 @@
 import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import { motion, AnimatePresence } from "framer-motion";
-import { Menu, X, Moon, Sun } from "lucide-react";
+import { Menu, X, Moon, Sun, Terminal } from "lucide-react";
+import { data } from "../data/portfolioData";
 
 const Navbar = ({ isDark, setIsDark }) => {
   const [isOpen, setIsOpen] = useState(false);
@@ -15,14 +16,9 @@ const Navbar = ({ isDark, setIsDark }) => {
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
-//arnob
   const navLinks = [
-    { name: "Home", href: "#home" },
-    { name: "About", href: "#about" },
-    { name: "Skills", href: "#skills" },
-    { name: "Experience", href: "#experience" },
+    { name: "Work", href: "#experience" },
     { name: "Projects", href: "#projects" },
-    { name: "Education", href: "#education" },
     { name: "Contact", href: "#contact" },
   ];
 
@@ -42,40 +38,32 @@ const Navbar = ({ isDark, setIsDark }) => {
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center h-20">
           {/* Logo */}
-          <Link
-            to="/"
-            className="font-bold text-xl sm:text-2xl bg-gradient-to-r from-blue-400 to-cyan-400 bg-clip-text text-transparent"
-          >
-            SR
+          <Link to="/" className="font-bold text-xl sm:text-2xl text-dark-100">
+            {data.name.split(" ")[0]}
           </Link>
 
           {/* Desktop Navigation */}
-          <div className="hidden md:flex items-center gap-8">
+          <div className="hidden md:flex items-center gap-6">
             {navLinks.map((link) => (
               <a
                 key={link.name}
                 href={link.href}
-                onClick={() => handleNavClick(link.name.toLowerCase())}
-                className={`text-sm font-medium transition-colors relative group ${
-                  activeSection === link.name.toLowerCase()
-                    ? "text-blue-400"
-                    : "text-dark-300 hover:text-dark-100"
-                }`}
+                className="text-sm text-dark-300 hover:text-dark-100 transition-colors"
               >
                 {link.name}
-                <span
-                  className={`absolute -bottom-2 left-0 h-0.5 bg-gradient-to-r from-blue-400 to-cyan-400 transition-all ${
-                    activeSection === link.name.toLowerCase()
-                      ? "w-full"
-                      : "w-0 group-hover:w-full"
-                  }`}
-                />
               </a>
             ))}
           </div>
 
           {/* Right side icons */}
           <div className="flex items-center gap-4">
+            <a
+              href="/cli"
+              className="p-2 rounded-lg bg-dark-800 hover:bg-dark-700 transition-colors"
+              aria-label="CLI mode"
+            >
+              <Terminal size={20} />
+            </a>
             <button
               onClick={() => setIsDark(!isDark)}
               className="p-2 rounded-lg bg-dark-800 hover:bg-dark-700 transition-colors"

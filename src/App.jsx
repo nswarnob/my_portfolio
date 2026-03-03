@@ -4,6 +4,7 @@ import "./index.css";
 import Navbar from "./components/Navbar";
 import ScrollProgress from "./components/ScrollProgress";
 import Footer from "./components/Footer";
+import FloatingSearch from "./components/FloatingSearch";
 import Home from "./pages/Home";
 import ProjectsPage from "./pages/ProjectsPage";
 import ProjectDetail from "./pages/ProjectDetail";
@@ -16,6 +17,7 @@ function App() {
       <div className={isDark ? "dark" : "light"}>
         <ScrollProgress />
         <Navbar isDark={isDark} setIsDark={setIsDark} />
+        <FloatingSearch />
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/projects" element={<ProjectsPage />} />

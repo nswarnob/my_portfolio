@@ -4,28 +4,59 @@
 
 ## Quick Start
 
-To personalize this portfolio with your own information, edit **`src/data/portfolio.js`** - this is the only file you need to modify for content changes.
+To personalize this portfolio with your own information, edit **`src/data/portfolioData.js`**. The `data` object exported from that file drives all text and links used throughout the site.
 
 ## What to Change First
 
-### 1. **Your Personal Information** (Required)
-
-In `src/data/portfolio.js`, update the `profile` object:
+The file `src/data/portfolioData.js` exports a single `data` object with all of your personal content. You can modify any field directly. Here is a minimal example showing the top-level structure:
 
 ```javascript
-profile: {
-  name: "Sharif Uddin Arnob",  // Change to your name
-  designation: "Web Developer | Tech Enthusiast",  // e.g., "Full Stack Developer", "Frontend Engineer"
-  bio: "",  // Update your biography
-  photo: "https://drive.google.com/file/d/1kUktrEb1o72skJF5YRnj2rPHINFaIMH-/view?usp=drivesdk",  // Add your photo URL
-  resume: "/resume.pdf",  // Set to null if no resume yet
+export const data = {
+  name: "Your Name",
+  dob: "1990-01-01", // age calculated automatically
+  designation: "Software Developer",
+  about: ["A brief introduction line.", "Another sentence about yourself."],
   socials: [
-    { name: "GitHub", icon: "FiGithub", url: "https://github.com/nswarnob" },
-    { name: "LinkedIn", icon: "FiLinkedin", url: "https://linkedin.com/in/nswarnob" },
-    // ... update all social links
-  ]
-}
+    { name: "GitHub", icon: "FiGithub", url: "https://github.com/yourname" },
+    {
+      name: "LinkedIn",
+      icon: "FiLinkedin",
+      url: "https://linkedin.com/in/yourname",
+    },
+  ],
+  skills: ["React", "Node.js", "Tailwind CSS"],
+  experience: [
+    {
+      company: "Company A",
+      role: "Developer",
+      dates: "2022 - Present",
+      logo: "/logo.png",
+    },
+  ],
+  projects: [
+    {
+      title: "Project Name",
+      dates: "2023",
+      liveUrl: "https://example.com",
+      repoUrl: "https://github.com/your/repo",
+    },
+  ],
+  education: [
+    {
+      name: "University",
+      degree: "B.Sc.",
+      years: "2016 - 2020",
+      logo: "/logo.png",
+    },
+  ],
+  contact: {
+    email: "you@example.com",
+    message: "Feel free to reach out via email.",
+  },
+};
 ```
+
+Edit the arrays and values as needed; missing sections will automatically be hidden.
 
 ### 2. **Add Your Projects**
 

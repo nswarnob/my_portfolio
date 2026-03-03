@@ -17,6 +17,8 @@ A modern, dark-themed developer portfolio website built with React, Vite, Tailwi
 - **Contact Form** - Contact section with integrated form (ready for EmailJS/Formspree)
 - **GitHub Contributions** - Ready for GitHub calendar integration
 - **Social Links** - Quick access to all social profiles
+- **CLI Icon** - a terminal link in the navbar (placeholder)
+- **Floating Search** - Cmd+K style button at bottom-right
 - **Resume Download** - Download resume button (configure in data)
 
 ## 🛠️ Tech Stack
@@ -57,7 +59,43 @@ The site will be available at `http://localhost:5173`
 
 ## 📝 Customization Guide
 
-All content is managed in a single data file. Edit `src/data/portfolio.js` to personalize the portfolio:
+All content is now managed in `src/data/portfolioData.js`. Open that file and update the exported `data` object with your details. The structure is simple:
+
+```javascript
+export const data = {
+  name: "Your Name",
+  dob: "1990-01-01", // used to calculate age
+  designation: "Software Developer",
+  about: ["Line one of your about text", "Another sentence..."],
+  socials: [
+    { name: "GitHub", icon: "FiGithub", url: "https://github.com/yourname" },
+    // add more links
+  ],
+  skills: ["React", "Node.js", "Tailwind CSS"], // array of strings for chips
+  experience: [
+    {
+      company: "Company A",
+      role: "Developer",
+      dates: "2022 - Present",
+      logo: "/logo.png",
+    },
+    // ...
+  ],
+  projects: [{ title: "Proj", dates: "2023", liveUrl: "...", repoUrl: "..." }],
+  education: [
+    {
+      name: "University",
+      degree: "B.Sc.",
+      years: "2016 - 2020",
+      logo: "/logo.png",
+    },
+  ],
+  contact: {
+    email: "you@example.com",
+    message: "Feel free to reach out via email.",
+  },
+};
+```
 
 ### 1. **Profile Information**
 

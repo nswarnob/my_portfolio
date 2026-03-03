@@ -23,6 +23,7 @@ export default {
         "fade-in": "fadeIn 0.5s ease-in",
         "slide-up": "slideUp 0.5s ease-out",
         "pulse-glow": "pulseGlow 2s ease-in-out infinite",
+        "border-move": "borderMove 8s linear infinite",
       },
       keyframes: {
         slideDown: {
@@ -40,6 +41,10 @@ export default {
         pulseGlow: {
           "0%, 100%": { opacity: "0.5" },
           "50%": { opacity: "1" },
+        },
+        borderMove: {
+          "0%": { backgroundPosition: "0% 50%" },
+          "100%": { backgroundPosition: "200% 50%" },
         },
       },
       backdropBlur: {

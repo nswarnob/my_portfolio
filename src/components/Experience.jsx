@@ -1,29 +1,10 @@
 import { motion } from "framer-motion";
-import { portfolio } from "../data/portfolio";
+import { data } from "../data/portfolioData";
 
 const Experience = () => {
-  const { experience } = portfolio;
+  const { experience } = data;
 
-  const containerVariants = {
-    hidden: { opacity: 0 },
-    visible: {
-      opacity: 1,
-      transition: {
-        staggerChildren: 0.15,
-        delayChildren: 0.1,
-      },
-    },
-  };
-
-  const itemVariants = {
-    hidden: { opacity: 0, x: -50, y: 20 },
-    visible: {
-      opacity: 1,
-      x: 0,
-      y: 0,
-      transition: { duration: 0.6, ease: "easeOut" },
-    },
-  };
+  if (!experience || experience.length === 0) return null;
 
   return (
     <section id="experience" className="py-20 px-4 sm:px-6 lg:px-8">
@@ -32,47 +13,50 @@ const Experience = () => {
           initial={{ opacity: 0 }}
           whileInView={{ opacity: 1 }}
           viewport={{ once: true }}
-          className="text-4xl sm:text-5xl font-bold mb-16 text-center"
+          className="text-3xl font-bold mb-12"
         >
-          <span className="bg-gradient-to-r from-blue-400 to-cyan-400 bg-clip-text text-transparent">
-            Work Experience
-          </span>
+          Experience
         </motion.h2>
 
         <motion.div
-          variants={containerVariants}
-          initial="hidden"
-          whileInView="visible"
+          initial={{ opacity: 0 }}
+          whileInView={{ opacity: 1 }}
           viewport={{ once: true }}
-          className="space-y-6"
+          className="space-y-4"
         >
-          {experience.map((exp, index) => (
+          {experience.map((exp, idx) => (
             <motion.div
-              key={exp.id}
-              variants={itemVariants}
-              className="flex gap-4 p-6 rounded-xl bg-dark-900/50 backdrop-blur-sm border border-dark-800/50 hover:border-blue-500/30 transition-all group"
+              key={idx}
+              initial={{ opacity: 0, x: -20 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true }}
+              transition={{ delay: idx * 0.1 }}
+              className="flex items-start gap-4 p-4 rounded-lg border border-white/10 hover:border-white/20 transition-colors group"
             >
-              {/* Icon */}
-              <div className="flex-shrink-0">
-                <div className="w-16 h-16 rounded-full bg-gradient-to-br from-blue-600 to-cyan-600 flex items-center justify-center text-2xl">
-                  {exp.icon}
-                </div>
-              </div>
-
-              {/* Content */}
+              <img
+                src={exp.logo}
+                alt={exp.company}
+                className="w-12 h-12 rounded-full flex-shrink-0"
+              />
               <div className="flex-grow">
-                <h3 className="text-xl font-bold text-blue-400">
-                  {exp.company}
-                </h3>
-                <p className="text-dark-200 font-medium">{exp.role}</p>
-                <p className="text-dark-400 text-sm mt-1">{exp.description}</p>
-              </div>
-
-              {/* Date */}
-              <div className="flex-shrink-0 text-right">
-                <p className="text-dark-400 text-sm whitespace-nowrap">
-                  {exp.duration}
-                </p>
+                <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-2">
+                  <div>
+                    <h3 className="font-semibold text-dark-100 group-hover:text-blue-400 transition-colors">
+                      {exp.company}
+                    </h3>
+                    <p className="text-sm text-dark-400">
+                      {exp.role}{" "}
+                      {exp.badge && (
+                        <span className="ml-2 px-2 py-0.5 text-xs bg-dark-700 rounded-full text-dark-300">
+                          {exp.badge}
+                        </span>
+                      )}
+                    </p>
+                  </div>
+                  <p className="text-sm text-dark-400 whitespace-nowrap">
+                    {exp.dates}
+                  </p>
+                </div>
               </div>
             </motion.div>
           ))}

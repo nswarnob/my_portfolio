@@ -34,3 +34,16 @@ html {
 body {
   @apply bg-dark-950 text-dark-100 font-sans;
 }
+
+/* Animated border gradient */
+.animate-border-move {
+  background-size: 200% 200%;
+  animation: borderMove 8s linear infinite;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .animate-border-move {
+    @apply !animate-none;
+    opacity: 0.3;
+  }
+}
