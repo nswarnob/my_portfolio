@@ -15,7 +15,7 @@ const Navbar = ({ isDark, setIsDark }) => {
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
-
+//arnob
   const navLinks = [
     { name: "Home", href: "#home" },
     { name: "About", href: "#about" },
