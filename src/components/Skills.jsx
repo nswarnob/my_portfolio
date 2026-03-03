@@ -1,4 +1,5 @@
 import { data } from "../data/portfolioData";
+import { motion } from "framer-motion";
 
 const Skills = () => {
   const { skills } = data;

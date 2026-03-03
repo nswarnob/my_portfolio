@@ -1,4 +1,5 @@
 import { data } from "../data/portfolioData";
+import { motion } from "framer-motion";
 
 const Experience = () => {
   const { experience } = data;
