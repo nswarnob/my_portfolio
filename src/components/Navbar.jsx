@@ -36,7 +36,7 @@ const Navbar = ({ isDark, setIsDark }) => {
       }`}
     >
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex justify-between items-center h-20">
+        <div className="flex justify-between items-center h-16">
           {/* Logo */}
           <Link to="/" className="font-bold text-xl sm:text-2xl text-dark-100">
             {data.name.split(" ")[0]}

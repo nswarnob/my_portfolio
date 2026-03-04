@@ -1,8 +1,8 @@
 export const data = {
   name: "Sharif Uddin Arnob",
   dob: "2002-10-13", // YYYY-MM-DD
-  designation: "Software Developer",
-  photo: "https://images.unsplash.com/photo-1502685104226-ee32379fefbe?w=400&h=400&fit=crop", // feel free to replace with your own picture URL
+  designation: "Full Stack Developer",
+  photo: "https://imgur.com/a/YNZcPfJ", // feel free to replace with your own picture URL
 
   about: [
     "Hey, Sharif here! I've been on Earth building things and exploring code.",
@@ -20,7 +20,11 @@ export const data = {
       url: "https://linkedin.com/in/nswarnob",
     },
     { name: "X", icon: "FiTwitter", url: "https://twitter.com/nswarnob" },
-    { name: "YouTube", icon: "FiYoutube", url: "https://youtube.com/@nswarnob" },
+    {
+      name: "YouTube",
+      icon: "FiYoutube",
+      url: "https://youtube.com/@nswarnob",
+    },
   ],
 
   skills: [
@@ -34,17 +38,17 @@ export const data = {
 
   experience: [
     {
-      company: "Company A",
-      role: "Frontend Engineer",
-      badge: "NDA",
+      company: "Fiverr",
+      role: "Web Developer",
+      badge: "Level 1 Seller",
       dates: "Dec 2025 - Present",
-      logo: "https://via.placeholder.com/40",
+      logo: "https://www.fiverr.com/favicon.ico",
     },
     {
-      company: "Company B",
-      role: "Full Stack Developer",
+      company: "Issa Snack Or Put It Back",
+      role: "Website Manager",
       dates: "Jan 2023 - Nov 2025",
-      logo: "https://via.placeholder.com/40",
+      logo: "https://www.issasnackorputitback.com/favicon.ico",
     },
   ],
 
@@ -52,8 +56,10 @@ export const data = {
     {
       title: "Microloan Tracker System",
       dates: "2026",
-      description: "A comprehensive web application for managing microloans with real-time tracking and financial analytics.",
-      image: "https://images.unsplash.com/photo-1552664730-d307ca884378?w=600&h=400&fit=crop",
+      description:
+        "A comprehensive web application for managing microloans with real-time tracking and financial analytics.",
+      image:
+        "https://images.unsplash.com/photo-1552664730-d307ca884378?w=600&h=400&fit=crop",
       technologies: ["React", "Node.js", "MongoDB", "Tailwind CSS"],
       liveUrl: "https://mrats-client.vercel.app/",
       repoUrl: "https://github.com/nswarnob/project",
@@ -61,8 +67,10 @@ export const data = {
     {
       title: "Portfolio Website",
       dates: "2025",
-      description: "Modern portfolio website built with prasen.dev style - minimal, dark theme with meteor background animations.",
-      image: "https://images.unsplash.com/photo-1517694712202-14dd9538aa97?w=600&h=400&fit=crop",
+      description:
+        "Modern portfolio website built with prasen.dev style - minimal, dark theme with meteor background animations.",
+      image:
+        "https://images.unsplash.com/photo-1517694712202-14dd9538aa97?w=600&h=400&fit=crop",
       technologies: ["React", "Vite", "Tailwind CSS", "Framer Motion"],
       liveUrl: "https://nswarnob.dev",
       repoUrl: "https://github.com/nswarnob/my-portfolio",
@@ -74,7 +82,7 @@ export const data = {
       name: "Sylhet International University",
       degree: "B.Sc. in Computer Science",
       years: "2025-Present",
-      logo: "https://via.placeholder.com/40",
+      logo: "https://www.siu.edu.bd/assets/img/logo.png",
     },
   ],
 

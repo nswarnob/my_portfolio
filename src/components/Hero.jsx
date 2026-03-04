@@ -38,9 +38,9 @@ const Hero = () => {
   };
 
   return (
-    <section id="home" className="relative pt-20">
+    <section id="home" className="relative min-h-screen pt-16">
       <MeteorBackground />
-      <div className="relative z-10 max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 h-auto sm:h-screen flex items-center">
+      <div className="relative z-10 max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 h-screen flex items-center">
         <motion.div
           variants={container}
           initial="hidden"
@@ -49,7 +49,7 @@ const Hero = () => {
           className="space-y-6 text-left flex-1 relative"
         >
           {photo && (
-            <div className="absolute top-4 sm:top-6 md:top-8 right-0 w-20 h-20 sm:w-28 sm:h-28 md:w-36 md:h-36">
+            <div className="hidden lg:block absolute top-0 right-0 w-32 h-32 md:w-40 md:h-40">
               <img
                 src={photo}
                 alt={name}
@@ -60,11 +60,11 @@ const Hero = () => {
 
           <motion.h1
             variants={item}
-            className="text-3xl sm:text-4xl md:text-5xl font-bold leading-tight"
+            className="text-5xl font-bold leading-tight"
           >
             hey, {name.split(" ")[0]} here
           </motion.h1>
-          <motion.p variants={item} className="text-base sm:text-lg text-dark-400">
+          <motion.p variants={item} className="text-lg text-dark-400">
             been on earth for {age} years
           </motion.p>
           <motion.div variants={item}>
