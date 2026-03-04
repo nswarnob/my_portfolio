@@ -3,7 +3,7 @@ import { data } from "../data/portfolioData";
 
 const About = () => {
   return (
-    <section id="about" className="py-20 px-4 sm:px-6 lg:px-8">
+    <section id="about" className="py-12 px-4 sm:px-6 lg:px-8">
       <div className="max-w-6xl mx-auto">
         <motion.h2
           initial={{ opacity: 0, y: 20 }}

@@ -2,9 +2,10 @@ export const data = {
   name: "Sharif Uddin Arnob",
   dob: "2002-10-13", // YYYY-MM-DD
   designation: "Software Developer",
-  photo: "https://images.unsplash.com/photo-1502685104226-ee32379fefbe?w=400&h=400&fit=crop",
+  photo: "https://images.unsplash.com/photo-1502685104226-ee32379fefbe?w=400&h=400&fit=crop", // feel free to replace with your own picture URL
 
   about: [
+    "Hey, Sharif here! I've been on Earth building things and exploring code.",
     "Currently freelancing and collaborating with new people to build cool stuff.",
     "I love writing about technology on my blog and making video tutorials.",
     "In my free time I play video games, watch shows, and tinker with gadgets.",
