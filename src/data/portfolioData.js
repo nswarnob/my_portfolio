@@ -24,11 +24,6 @@ export const data = {
       icon: "FiYoutube",
       url: "https://youtube.com/@nswarnob",
     },
-    {
-      name: "Medium",
-      icon: "FiMedium",
-      url: "https://nswarnob.medium.com",
-    },
   ],
 
   skills: [
@@ -85,13 +80,13 @@ export const data = {
     {
       name: "Sylhet International University",
       degree: "B.Sc. in Computer Science",
-      years: "2025-Present",
+      years: "2025 - Present",
       logo: "https://www.siu.edu.bd/siu/img/logo.png",
     },
     {
       name: "Sylhet Polytechnic Institute",
       degree: "Diploma in Computer Technology",
-      years: "2020-2024",
+      years: "2020 - 2024",
       logo: "https://sylhet.polytech.gov.bd/site-assets/images/logo.png",
     },
   ],

@@ -1,13 +1,6 @@
 import { useMemo } from "react";
 import { motion } from "framer-motion";
-import {
-  Github,
-  Linkedin,
-  Mail,
-  Twitter,
-  Download,
-  Youtube,
-} from "lucide-react";
+import { Github, Linkedin, Twitter, Youtube } from "lucide-react";
 import { data } from "../data/portfolioData";
 
 const Hero = () => {
@@ -95,7 +88,7 @@ const Hero = () => {
                   rel="noopener noreferrer"
                   className="text-dark-300 hover:text-dark-100 transition-colors"
                 >
-                  <Icon size={24} />
+                  {Icon && <Icon size={24} />}
                 </a>
               );
             })}
