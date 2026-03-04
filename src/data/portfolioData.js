@@ -2,8 +2,7 @@ export const data = {
   name: "Sharif Uddin Arnob",
   dob: "2002-10-13", // YYYY-MM-DD
   designation: "Full Stack Developer",
-  photo: "https://imgur.com/a/YNZcPfJ", // feel free to replace with your own picture URL
-
+  photo: "/src/assets/nswarnob.jpeg",
   about: [
     "Hey, Sharif here! I've been on Earth building things and exploring code.",
     "Currently freelancing and collaborating with new people to build cool stuff.",
