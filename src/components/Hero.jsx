@@ -10,7 +10,6 @@ import {
 } from "lucide-react";
 import { data } from "../data/portfolioData";
 
-
 const Hero = () => {
   const { name, dob, about, socials, skills, photo } = data;
 
@@ -38,9 +37,11 @@ const Hero = () => {
   };
 
   return (
-    <section id="home" className="relative min-h-screen py-10 sm:py-6">
-      
-      <div className="relative z-10 space-y-7 px-4 sm:px-6 lg:px-8 flex items-center justify-center sm:pt-7 min-h-screen">
+    <section
+      id="home"
+      className="relative  pt-12 sm:pt-16 lg:pt-24 pb-2 px-4 sm:px-6 lg:px-8"
+    >
+      <div className="relative z-10 space-y-7 px-4 sm:px-6 lg:px-8 flex items-center justify-center my-8">
         <motion.div
           variants={container}
           initial="hidden"
