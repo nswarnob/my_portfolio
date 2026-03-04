@@ -38,7 +38,7 @@ const Hero = () => {
   };
 
   return (
-    <section id="home" className="relative min-h-screen py-16 sm:py-20">
+    <section id="home" className="relative min-h-screen py-12 sm:py-16">
       <MeteorBackground />
       <div className="relative z-10 max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 flex items-center justify-center min-h-screen">
         <motion.div
@@ -98,7 +98,7 @@ const Hero = () => {
             })}
           </motion.div>
 
-          <motion.div variants={item}>
+          <motion.div variants={item} className="mt-5">
             <h4 className="text-xs sm:text-sm uppercase text-dark-500 mb-2">
               skills
             </h4>
