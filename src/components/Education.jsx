@@ -26,13 +26,13 @@ const Education = () => {
   };
 
   return (
-    <section id="education" className="py-16 px-4 sm:px-6 lg:px-8">
+    <section id="education" className="py-8 sm:py-12 lg:py-16 px-4 sm:px-6 lg:px-8">
       <div className="max-w-6xl mx-auto">
         <motion.h2
           initial={{ opacity: 0 }}
           whileInView={{ opacity: 1 }}
           viewport={{ once: true }}
-          className="text-3xl font-bold mb-12"
+          className="text-2xl sm:text-3xl font-bold mb-12"
         >
           Education
         </motion.h2>

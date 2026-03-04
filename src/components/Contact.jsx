@@ -34,14 +34,14 @@ const Contact = () => {
   });
 
   return (
-    <section id="contact" className="py-16 px-4 sm:px-6 lg:px-8">
+    <section id="contact" className="py-8 sm:py-12 lg:py-16 px-4 sm:px-6 lg:px-8">
       <div className="max-w-6xl mx-auto">
         <AnimatedBorderCard padding="p-12">
           <motion.h2
             initial={{ opacity: 0 }}
             whileInView={{ opacity: 1 }}
             viewport={{ once: true }}
-            className="text-3xl font-bold mb-4 text-center"
+            className="text-2xl sm:text-3xl font-bold mb-4 text-center"
           >
             Let's Work Together
           </motion.h2>

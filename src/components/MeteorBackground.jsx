@@ -24,16 +24,19 @@ const MeteorBackground = () => {
 
     // Meteor properties
     const meteors = [];
-    const meteorCount = prefersReducedMotion ? 5 : 15;
+    // fewer meteors on screen for light density
+    const meteorCount = prefersReducedMotion ? 3 : 8;
 
     const createMeteor = () => ({
       x: Math.random() * canvas.width,
       y: -50,
-      length: Math.random() * 80 + 50,
-      width: Math.random() * 1.5 + 0.5,
-      speed: Math.random() * 6 + 4,
-      opacity: Math.random() * 0.5 + 0.3,
-      angle: Math.random() * 0.3 + 0.2,
+      // shorter tails for calmer sky vibe
+      length: Math.random() * 40 + 40,
+      width: Math.random() * 1.2 + 0.8,
+      // slower speed range for a driftier effect
+      speed: Math.random() * 2 + 1,
+      opacity: Math.random() * 0.3 + 0.1,
+      angle: Math.random() * 0.2 + 0.1,
     });
 
     // Initialize meteors
@@ -43,16 +46,18 @@ const MeteorBackground = () => {
 
     let animationId;
     const animate = () => {
-      ctx.fillStyle = "rgba(15, 23, 42, 0.2)";
+      // increase background opacity for cleaner sky
+      ctx.fillStyle = "rgba(15, 23, 42, 0.3)";
       ctx.fillRect(0, 0, canvas.width, canvas.height);
 
       meteors.forEach((meteor, index) => {
-        // Update position
-        meteor.x += Math.cos(meteor.angle) * meteor.speed;
-        meteor.y += meteor.speed;
+        // Update position slowly
+        meteor.x += Math.cos(meteor.angle) * meteor.speed * 0.6;
+        meteor.y += meteor.speed * 0.6;
 
         // Draw meteor
-        ctx.strokeStyle = `rgba(148, 163, 184, ${meteor.opacity})`;
+        // matte sky‑blue color
+        ctx.strokeStyle = `rgba(120, 170, 210, ${meteor.opacity})`;
         ctx.lineWidth = meteor.width;
         ctx.lineCap = "round";
         ctx.beginPath();

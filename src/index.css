@@ -42,7 +42,7 @@ html {
 
 body {
   /* stylelint-disable-next-line at-rule-no-unknown */
-  @apply bg-dark-950 text-dark-100 font-sans;
+  @apply bg-dark-950 text-dark-100 font-sans text-sm sm:text-base;
 }
 
 /* Animated border gradient */

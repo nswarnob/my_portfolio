@@ -7,7 +7,7 @@ const Footer = () => {
     data.socials.find((s) => s.name === "GitHub")?.url.split("/").pop() || "";
 
   return (
-    <footer className="py-12 px-4 sm:px-6 lg:px-8 border-t border-white/10">
+    <footer className="py-8 sm:py-12 px-4 sm:px-6 lg:px-8 border-t border-white/10">
       <div className="max-w-6xl mx-auto">
         <motion.div
           initial={{ opacity: 0 }}
