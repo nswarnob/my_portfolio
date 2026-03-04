@@ -17,8 +17,8 @@ const Home = () => {
     >
       <MeteorBackground />
       <Hero />
-      <GithubContributions />
       <Experience />
+      <GithubContributions />
       <Projects />
       <Education />
       <Contact />
