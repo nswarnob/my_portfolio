@@ -38,9 +38,9 @@ const Hero = () => {
   };
 
   return (
-    <section id="home" className="relative min-h-screen py-10 sm:py-12">
+    <section id="home" className="relative min-h-screen py-10 sm:py-6">
       <MeteorBackground />
-      <div className="relative z-10 max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 flex items-center justify-center min-h-screen">
+      <div className="relative z-10 max-w-4xl mx-auto space-y-7 px-4 sm:px-6 lg:px-8 flex items-center justify-center min-h-screen">
         <motion.div
           variants={container}
           initial="hidden"
@@ -58,22 +58,24 @@ const Hero = () => {
             </div>
           )}
 
-          <motion.h1
-            variants={item}
-            className="text-4xl sm:text-3xl font-bold leading-tight"
-          >
-            hey, {name.split(" ")[0]} here
-          </motion.h1>
-          <motion.p
-            variants={item}
-            className="text-base sm:text-lg text-dark-400"
-          >
-            been on earth for {age} years
-          </motion.p>
+          <div>
+            <motion.h1
+              variants={item}
+              className="text-2xl sm:text-4xl font-bold leading-tight"
+            >
+              Hey, {name.split(" ")[0]} here
+            </motion.h1>
+            <motion.p
+              variants={item}
+              className="text-base sm:text-lg text-dark-400"
+            >
+              been on earth for {age} years
+            </motion.p>
+          </div>
 
-          <motion.div variants={item} className="my-5">
+          <motion.div variants={item}>
             <h4 className="text-xs sm:text-sm uppercase text-dark-500 mb-2">
-              about me
+              About me
             </h4>
             <div className="prose prose-sm text-dark-300">
               {about.map((line, idx) => (
@@ -98,7 +100,7 @@ const Hero = () => {
             })}
           </motion.div>
 
-          <motion.div variants={item} className="mt-5">
+          <motion.div variants={item}>
             <h4 className="text-xs sm:text-sm uppercase text-dark-500 mb-2">
               skills
             </h4>
