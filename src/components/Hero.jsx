@@ -38,7 +38,7 @@ const Hero = () => {
   };
 
   return (
-    <section id="home" className="relative min-h-screen py-12 sm:py-16">
+    <section id="home" className="relative min-h-screen py-10 sm:py-12">
       <MeteorBackground />
       <div className="relative z-10 max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 flex items-center justify-center min-h-screen">
         <motion.div
