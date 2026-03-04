@@ -38,18 +38,18 @@ const Hero = () => {
   };
 
   return (
-    <section id="home" className="relative min-h-screen pt-16">
+    <section id="home" className="relative min-h-screen py-16 sm:py-20">
       <MeteorBackground />
-      <div className="relative z-10 max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 h-screen flex items-center">
+      <div className="relative z-10 max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 flex items-center justify-center min-h-screen">
         <motion.div
           variants={container}
           initial="hidden"
           whileInView="show"
           viewport={{ once: true }}
-          className="space-y-6 text-left flex-1 relative"
+          className="space-y-6 text-left flex-1 relative w-full"
         >
           {photo && (
-            <div className="hidden lg:block absolute top-0 right-0 w-32 h-32 md:w-40 md:h-40">
+            <div className="absolute top-4 right-4 w-20 h-20 sm:w-28 sm:h-28 md:w-40 md:h-40">
               <img
                 src={photo}
                 alt={name}
@@ -60,15 +60,21 @@ const Hero = () => {
 
           <motion.h1
             variants={item}
-            className="text-5xl font-bold leading-tight"
+            className="text-4xl sm:text-3xl font-bold leading-tight"
           >
             hey, {name.split(" ")[0]} here
           </motion.h1>
-          <motion.p variants={item} className="text-lg text-dark-400">
+          <motion.p
+            variants={item}
+            className="text-base sm:text-lg text-dark-400"
+          >
             been on earth for {age} years
           </motion.p>
-          <motion.div variants={item}>
-            <h4 className="text-sm uppercase text-dark-500 mb-2">about me</h4>
+
+          <motion.div variants={item} className="my-5">
+            <h4 className="text-xs sm:text-sm uppercase text-dark-500 mb-2">
+              about me
+            </h4>
             <div className="prose prose-sm text-dark-300">
               {about.map((line, idx) => (
                 <p key={idx} dangerouslySetInnerHTML={{ __html: line }} />
@@ -91,13 +97,16 @@ const Hero = () => {
               );
             })}
           </motion.div>
+
           <motion.div variants={item}>
-            <h4 className="text-sm uppercase text-dark-500 mb-2">skills</h4>
+            <h4 className="text-xs sm:text-sm uppercase text-dark-500 mb-2">
+              skills
+            </h4>
             <div className="flex flex-wrap gap-2">
               {skills.map((skill, i) => (
                 <span
                   key={i}
-                  className="px-3 py-1 bg-dark-800 rounded-full text-sm text-dark-200"
+                  className="px-3 py-1 bg-dark-800 rounded-full text-xs sm:text-sm text-dark-200"
                 >
                   {skill}
                 </span>
