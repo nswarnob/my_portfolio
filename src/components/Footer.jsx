@@ -4,7 +4,10 @@ import { data } from "../data/portfolioData";
 const Footer = () => {
   const year = new Date().getFullYear();
   const githubUsername =
-    data.socials.find((s) => s.name === "GitHub")?.url.split("/").pop() || "";
+    data.socials
+      .find((s) => s.name === "GitHub")
+      ?.url.split("/")
+      .pop() || "";
 
   return (
     <footer className="py-8 sm:py-12 px-4 sm:px-6 lg:px-8 border-t border-white/10">

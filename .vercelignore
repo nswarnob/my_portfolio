@@ -1,14 +1,20 @@
 # Ignore dependencies and local configs
+
 node_modules
 .git
 .env.local
-.env.*.local
+.env.\*.local
 
 # Optional: you can include or exclude test/design files here
-*.md
+
+\*.md
 
 # Don't ignore source or config files needed for Vite build
+
 # src/
+
 # public/
+
 # index.html
+
 # package-lock.json

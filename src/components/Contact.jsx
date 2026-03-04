@@ -34,7 +34,10 @@ const Contact = () => {
   });
 
   return (
-    <section id="contact" className="py-8 sm:py-12 lg:py-16 px-4 sm:px-6 lg:px-8">
+    <section
+      id="contact"
+      className="py-8 sm:py-12 lg:py-16 px-4 sm:px-6 lg:px-8"
+    >
       <div className="max-w-6xl mx-auto">
         <AnimatedBorderCard padding="p-12">
           <motion.h2
@@ -68,7 +71,9 @@ const Contact = () => {
                   key={idx}
                   href={link.href}
                   target={link.label !== "Email" ? "_blank" : undefined}
-                  rel={link.label !== "Email" ? "noopener noreferrer" : undefined}
+                  rel={
+                    link.label !== "Email" ? "noopener noreferrer" : undefined
+                  }
                   whileHover={{ scale: 1.1 }}
                   whileTap={{ scale: 0.95 }}
                   className={`flex items-center gap-2 px-4 py-2 rounded-lg border border-white/10 text-dark-300 transition-colors ${link.color}`}
