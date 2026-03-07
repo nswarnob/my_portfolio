@@ -1,7 +1,8 @@
 import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import { motion, AnimatePresence } from "framer-motion";
-import { Menu, X, Moon, Sun, Terminal } from "lucide-react";
+import { Menu, X, Terminal } from "lucide-react";
+import ThemeToggle from "./ThemeToggle";
 import { data } from "../data/portfolioData";
 
 const Navbar = ({ isDark, setIsDark }) => {
@@ -64,13 +65,7 @@ const Navbar = ({ isDark, setIsDark }) => {
             >
               <Terminal size={20} />
             </a>
-            <button
-              onClick={() => setIsDark(!isDark)}
-              className="p-2 rounded-lg bg-dark-800 hover:bg-dark-700 transition-colors"
-              aria-label="Toggle theme"
-            >
-              {isDark ? <Sun size={20} /> : <Moon size={20} />}
-            </button>
+            <ThemeToggle isDark={isDark} setIsDark={setIsDark} />
 
             {/* Mobile menu button */}
             <button
