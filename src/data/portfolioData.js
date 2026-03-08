@@ -31,6 +31,8 @@ export const data = {
     "Next.js",
     "TypeScript",
     "Node.js",
+    "Express",
+    "MongoDB",
     "Tailwind CSS",
     "Framer Motion",
   ],
