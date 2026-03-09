@@ -1,60 +1,100 @@
-/* stylelint-disable-next-line at-rule-no-unknown */
 @tailwind base;
-/* stylelint-disable-next-line at-rule-no-unknown */
 @tailwind components;
-/* stylelint-disable-next-line at-rule-no-unknown */
 @tailwind utilities;
 
-* {
-  /* stylelint-disable-next-line at-rule-no-unknown */
-  @apply transition-colors;
+/* ----------------------------- */
+/* Base Styles */
+/* ----------------------------- */
+
+html {
+  scroll-behavior: smooth;
 }
 
-/* Custom scrollbar */
+body {
+  @apply bg-dark-950 text-dark-100 font-sans text-sm sm:text-base;
+}
+
+/* ----------------------------- */
+/* Custom Scrollbar */
+/* ----------------------------- */
+
 ::-webkit-scrollbar {
-  /* stylelint-disable-next-line at-rule-no-unknown */
   @apply w-2;
 }
 
 ::-webkit-scrollbar-track {
-  /* stylelint-disable-next-line at-rule-no-unknown */
   @apply bg-dark-900;
 }
 
 ::-webkit-scrollbar-thumb {
-  /* stylelint-disable-next-line at-rule-no-unknown */
-  @apply bg-dark-600 rounded-lg hover:bg-dark-500;
+  @apply bg-dark-600 rounded-lg;
 }
 
-/* Reduced motion support */
-@media (prefers-reduced-motion: reduce) {
-  * {
-    /* stylelint-disable-next-line at-rule-no-unknown */
-    @apply !transition-none !animate-none;
+::-webkit-scrollbar-thumb:hover {
+  @apply bg-dark-500;
+}
+
+/* ----------------------------- */
+/* Card Animated Border */
+/* ----------------------------- */
+
+.animated-border {
+  pointer-events: none;
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+
+  background: linear-gradient(
+    120deg,
+    rgba(59, 130, 246, 0.15) 0%,
+    rgba(59, 130, 246, 0.9) 18%,
+    rgba(6, 182, 212, 1) 28%,
+    rgba(255, 255, 255, 0.15) 36%,
+    rgba(6, 182, 212, 0.25) 48%,
+    rgba(59, 130, 246, 0.85) 62%,
+    rgba(6, 182, 212, 1) 74%,
+    rgba(59, 130, 246, 0.12) 100%
+  );
+
+  background-size: 250% 250%;
+  background-position: 0% 50%;
+  animation: borderFlow 4s linear infinite;
+  filter: blur(0.2px);
+}
+
+/* ----------------------------- */
+/* Avatar Animated Border */
+/* ----------------------------- */
+
+.avatar-border {
+  width: 100%;
+  height: 100%;
+  border-radius: 9999px;
+  padding: 2px;
+
+  background: linear-gradient(
+    120deg,
+    rgba(59, 130, 246, 0.15) 0%,
+    rgba(59, 130, 246, 0.9) 18%,
+    rgba(6, 182, 212, 1) 28%,
+    rgba(255, 255, 255, 0.15) 36%,
+    rgba(6, 182, 212, 0.25) 48%,
+    rgba(59, 130, 246, 0.85) 62%,
+    rgba(6, 182, 212, 1) 74%,
+    rgba(59, 130, 246, 0.12) 100%
+  );
+
+  background-size: 250% 250%;
+  background-position: 0% 50%;
+  animation: borderFlow 4s linear infinite;
+  filter: blur(0.2px);
+}
+
+@keyframes borderFlow {
+  0% {
+    background-position: 0% 50%;
   }
-}
-
-/* Smooth scroll behavior */
-html {
-  /* stylelint-disable-next-line at-rule-no-unknown */
-  @apply scroll-smooth;
-}
-
-body {
-  /* stylelint-disable-next-line at-rule-no-unknown */
-  @apply bg-dark-950 text-dark-100 font-sans text-sm sm:text-base;
-}
-
-/* Animated border gradient */
-.animate-border-move {
-  background-size: 200% 200%;
-  animation: borderMove 8s linear infinite;
-}
-
-@media (prefers-reduced-motion: reduce) {
-  .animate-border-move {
-    /* stylelint-disable-next-line at-rule-no-unknown */
-    @apply !animate-none;
-    opacity: 0.3;
+  100% {
+    background-position: 170% 30%;
   }
 }

@@ -17,7 +17,7 @@ const Projects = () => {
           initial={{ opacity: 0 }}
           whileInView={{ opacity: 1 }}
           viewport={{ once: true }}
-          className="text-2xl sm:text-3xl font-bold mb-12"
+         className="text-xl sm:text-2xl font-bold mb-8"
         >
           Featured Projects
         </motion.h2>

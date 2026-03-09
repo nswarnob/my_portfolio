@@ -1,11 +1,10 @@
 import { motion } from "framer-motion";
-import { useEffect, useRef } from "react";
 
 const AnimatedBorderCard = ({
   children,
   className = "",
   padding = "p-6",
-  rounded = "rounded-xl",
+  rounded = "rounded-[20px]",
 }) => {
   return (
     <motion.div
@@ -13,41 +12,16 @@ const AnimatedBorderCard = ({
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true }}
       whileHover={{ y: -4 }}
-      transition={{ duration: 0.3, ease: "easeOut" }}
-      className={`relative group ${className}`}
+      transition={{ duration: 0.3 }}
+      className={`relative ${rounded} ${className}`}
     >
-      {/* Animated border wrapper - 1px border with gradient glow */}
+      <div className={`animated-border absolute inset-0 ${rounded}`} />
+
       <div
-        className={`relative ${rounded} bg-gradient-to-r from-blue-500 via-cyan-400 to-blue-500 p-[1px] overflow-hidden ${className}`}
+        className={`relative z-10 m-[2px] ${rounded} ${padding} bg-dark-950 border border-white/10`}
       >
-        {/* Animated gradient border (always running) */}
-        <div
-          className={`absolute inset-0 ${rounded} bg-gradient-to-r from-blue-500 via-cyan-400 to-blue-500 animate-border-move opacity-40 group-hover:opacity-70 transition-opacity duration-300`}
-          style={{
-            backgroundSize: "200% 200%",
-          }}
-        />
-
-        {/* Content container */}
-        <div
-          className={`relative bg-dark-950 ${rounded} ${padding} backdrop-blur-sm`}
-        >
-          {children}
-        </div>
+        {children}
       </div>
-
-      {/* Static border as fallback/base */}
-      <div
-        className={`absolute inset-0 ${rounded} border border-white/10 pointer-events-none`}
-      />
-
-      {/* Soft glow on hover */}
-      <div
-        className={`absolute inset-0 ${rounded} opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none`}
-        style={{
-          boxShadow: "inset 0 0 20px rgba(59, 130, 246, 0.1)",
-        }}
-      />
     </motion.div>
   );
 };

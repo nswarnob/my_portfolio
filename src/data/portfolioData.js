@@ -60,7 +60,7 @@ export const data = {
       description:
         "LoanLink is a full-stack web application designed to streamline the process of microloan requests, review, approval, and management for small financial organizations, NGOs, and microloan providers. It features a user-friendly interface for borrowers to submit loan applications, and an admin dashboard for staff to review and manage these applications efficiently.",
       image:
-        "https://images.unsplash.com/photo-1552664730-d307ca884378?w=600&h=400&fit=crop",
+        "https://fiverr-res.cloudinary.com/image/upload/f_auto,q_auto/v1/attachments/project_item/attachment/d5790de2183133f6b4a0a2e66446c778-1771772124630/Screenshot_2026-02-21_20-28-04.png",
       technologies: ["React", "Node.js", "MongoDB", "Tailwind CSS"],
       liveUrl: "https://mrats-client.vercel.app/",
       repoUrl: "https://github.com/nswarnob/mrats-client.git",

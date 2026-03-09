@@ -6,6 +6,7 @@ import Education from "../components/Education";
 import GithubContributions from "../components/GithubContributions";
 import Contact from "../components/Contact";
 import MeteorBackground from "../components/MeteorBackground";
+import BlogSection from "../components/BlogSection";
 
 const Home = () => {
   return (
@@ -17,10 +18,11 @@ const Home = () => {
     >
       <MeteorBackground />
       <Hero />
-      <Experience />
       <GithubContributions />
+      <Experience /> 
       <Projects />
       <Education />
+      <BlogSection />
       <Contact />
     </motion.div>
   );

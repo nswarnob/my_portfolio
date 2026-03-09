@@ -2,9 +2,9 @@ import { motion } from "framer-motion";
 import { ExternalLink, Github } from "lucide-react";
 import AnimatedBorderCard from "./AnimatedBorderCard";
 
-const ProjectCard = ({ project, index }) => {
+const ProjectCard = ({ project }) => {
   return (
-    <AnimatedBorderCard padding="p-0" className="h-full">
+    <AnimatedBorderCard >
       <div className="flex flex-col h-full">
         {/* Image */}
         {project.image && (
