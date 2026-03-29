@@ -45,4 +45,4 @@ This project is open source under the MIT License.
 
 ---
 
-**Made with ❤️ | © 2024 Sharifur Rahman**
+**Made with ❤️ | © 2024 Sharif Uddin Arnob**
