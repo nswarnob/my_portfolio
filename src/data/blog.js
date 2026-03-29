@@ -4,25 +4,25 @@ export const mediumProfileUrl = "https://nswarnob.medium.com";
 export const blogs = [
   {
     id: 1,
-    title: "How I Built My Developer Portfolio with React and Tailwind CSS",
+    title: "How To Connect Your Front-End Project To Back-End data/API.",
     platform: "DEV",
-    publishDate: "2026-02-20",
-    url: "https://dev.to/nswarnob/how-i-built-my-developer-portfolio-with-react-and-tailwind-css-1234",
+    publishDate: "Oct 29, 2025",
+    url: "https://dev.to/nswarnob/how-to-connect-your-front-end-project-to-back-end-dataapi-2ckp",
     coverImage: "",
     description:
-      "A breakdown of how I designed and built my personal portfolio using React, Tailwind CSS, and a minimal dark UI inspired by modern developer portfolios.",
-    tags: ["React", "TailwindCSS", "Portfolio"],
+      "If you are a developer with Node.js + Express and React & you are a beginner then this article gonna very useful for you.",
+    tags: ["Frontend", "Backend", "API"],
   },
   {
     id: 2,
-    title: "Creating Smooth UI Animations in React with Framer Motion",
-    platform: "DEV",
-    publishDate: "2026-01-28",
-    url: "https://dev.to/nswarnob/creating-smooth-ui-animations-in-react-with-framer-motion-5678",
+    title: "Freelancing Journey | Web-developer",
+    platform: "Medium",
+    publishDate: "Dec 24, 2025",
+    url: "https://medium.com/@nswarnob/freelancing-journey-web-developer-nswarnob-7b4667b43745",
     coverImage: "",
     description:
-      "In this article I share practical animation patterns for React apps using Framer Motion, including subtle reveals, hover effects, and section transitions.",
-    tags: ["React", "FramerMotion", "UI"],
+      "I started freelancing back in 2020. I learned digital marketing first and began working in the local market. Over time, I served clients from different countries and always tried to deliver my best work. ",
+    tags: ["Freelancing", "Web Development", "Career"],
   },
   {
     id: 3,
