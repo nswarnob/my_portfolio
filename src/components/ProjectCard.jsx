@@ -4,70 +4,70 @@ import AnimatedBorderCard from "./AnimatedBorderCard";
 
 const ProjectCard = ({ project }) => {
   return (
-    <AnimatedBorderCard >
-      <div className="flex flex-col h-full">
+    <AnimatedBorderCard className="group h-full overflow-hidden">
+      <div className="flex h-full flex-col">
         {/* Image */}
         {project.image && (
-          <div className="relative h-48 overflow-hidden bg-dark-800">
+          <div className="relative h-48 overflow-hidden bg-slate-100 dark:bg-dark-800">
             <img
               src={project.image}
               alt={project.title}
-              className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
+              className="h-full w-full object-cover transition-transform duration-300 group-hover:scale-105"
             />
-            <div className="absolute inset-0 bg-gradient-to-t from-dark-950 via-transparent to-transparent" />
+            <div className="absolute inset-0 bg-gradient-to-t from-slate-950/30 via-transparent to-transparent dark:from-dark-950" />
           </div>
         )}
 
         {/* Content */}
-        <div className="flex-grow p-6">
-          <div className="flex items-start justify-between gap-4 mb-3">
+        <div className="flex flex-grow flex-col p-6">
+          <div className="mb-3 flex items-start justify-between gap-4">
             <div>
-              <h3 className="text-lg font-semibold text-dark-100 group-hover:text-blue-400 transition-colors">
+              <h3 className="text-lg font-semibold text-dark-100 transition-colors group-hover:text-blue-400">
                 {project.title}
               </h3>
               {project.dates && (
-                <p className="text-sm text-dark-400 mt-1">{project.dates}</p>
+                <p className="mt-1 text-sm text-dark-400">{project.dates}</p>
               )}
             </div>
           </div>
 
           {/* Description */}
           {project.description && (
-            <p className="text-sm text-dark-300 mb-4 line-clamp-2">
+            <p className="mb-4 line-clamp-3 text-sm text-dark-300">
               {project.description}
             </p>
           )}
 
           {/* Technologies */}
           {project.technologies && project.technologies.length > 0 && (
-            <div className="flex flex-wrap gap-2 mb-4">
-              {project.technologies.slice(0, 3).map((tech, i) => (
+            <div className="mb-4 flex flex-wrap gap-2">
+              {project.technologies.slice(0, 4).map((tech, i) => (
                 <span
                   key={i}
-                  className="px-2 py-1 text-xs bg-dark-800 rounded-full text-dark-300 hover:text-dark-100 transition-colors"
+                  className="rounded-full bg-slate-100 px-2 py-1 text-xs text-slate-700 transition-colors hover:text-slate-900 dark:bg-dark-800 dark:text-dark-300 dark:hover:text-dark-100"
                 >
                   {tech}
                 </span>
               ))}
-              {project.technologies.length > 3 && (
+              {project.technologies.length > 4 && (
                 <span className="px-2 py-1 text-xs text-dark-400">
-                  +{project.technologies.length - 3}
+                  +{project.technologies.length - 4}
                 </span>
               )}
             </div>
           )}
 
           {/* Links */}
-          <div className="flex gap-2">
+          <div className="mt-auto flex flex-wrap gap-4 pt-2">
             {project.liveUrl && (
               <a
                 href={project.liveUrl}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="flex items-center gap-1 text-sm text-blue-400 hover:text-blue-300 transition-colors"
+                className="flex items-center gap-1 text-sm text-blue-600 transition-colors hover:text-blue-700 dark:text-blue-400 dark:hover:text-blue-300"
               >
                 <ExternalLink size={16} />
-                Live
+                Live Demo
               </a>
             )}
             {project.repoUrl && (
@@ -75,10 +75,10 @@ const ProjectCard = ({ project }) => {
                 href={project.repoUrl}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="flex items-center gap-1 text-sm text-blue-400 hover:text-blue-300 transition-colors"
+                className="flex items-center gap-1 text-sm text-blue-600 transition-colors hover:text-blue-700 dark:text-blue-400 dark:hover:text-blue-300"
               >
                 <Github size={16} />
-                Source
+                Source Code
               </a>
             )}
           </div>

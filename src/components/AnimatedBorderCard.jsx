@@ -11,9 +11,9 @@ const AnimatedBorderCard = ({
       initial={{ opacity: 0, y: 20 }}
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true }}
-      whileHover={{ y: -4 }}
-      transition={{ duration: 0.3 }}
-      className={`relative ${rounded} ${className}`}
+      whileHover={{ y: -6 }}
+      transition={{ type: "spring", stiffness: 220, damping: 18 }}
+      className={`relative will-change-transform ${rounded} ${className}`}
     >
       <div className={`animated-border absolute inset-0 ${rounded}`} />
 

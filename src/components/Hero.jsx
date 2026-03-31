@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { motion } from "framer-motion";
-import { Github, Linkedin, Twitter, Youtube } from "lucide-react";
+import { Github, Linkedin, Twitter, Youtube, Instagram } from "lucide-react";
 import { data } from "../data/portfolioData";
 
 const Hero = () => {
@@ -19,7 +19,7 @@ const Hero = () => {
 
     updateAge();
 
-    const interval = setInterval(updateAge, 100);
+    const interval = setInterval(updateAge, 1000);
 
     return () => clearInterval(interval);
   }, [dob]);
@@ -29,6 +29,7 @@ const Hero = () => {
     FiLinkedin: Linkedin,
     FiTwitter: Twitter,
     FiYoutube: Youtube,
+    FiInstagram: Instagram,
   };
 
   const container = {
@@ -45,7 +46,7 @@ const Hero = () => {
       id="home"
       className="relative  pt-12 sm:pt-16 lg:pt-24 pb-2 px-4 sm:px-6 lg:px-8"
     >
-      <div className="relative z-10 px-4 sm:px-6 lg:px-8 flex items-center justify-center my-8">
+      <div className="relative z-10 px-4 sm:px-6 flex items-center justify-center my-8">
         <motion.div
           variants={container}
           initial="hidden"
@@ -100,7 +101,7 @@ const Hero = () => {
                   href={s.url}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="text-dark-300 hover:text-dark-100 transition-colors"
+                  className="text-dark-300 transition-all duration-300 hover:scale-110 hover:text-dark-100"
                 >
                   {Icon && <Icon size={24} />}
                 </a>

@@ -1,29 +1,39 @@
 import { useEffect, useState } from "react";
-import { motion } from "framer-motion";
 
 const ScrollProgress = () => {
   const [progress, setProgress] = useState(0);
 
   useEffect(() => {
-    const handleScroll = () => {
-      const windowHeight =
-        document.documentElement.scrollHeight -
-        document.documentElement.clientHeight;
-      const scrolled = (window.scrollY / windowHeight) * 100;
-      setProgress(scrolled);
+    const updateProgress = () => {
+      const scrollTop = window.scrollY;
+      const scrollHeight =
+        document.documentElement.scrollHeight - window.innerHeight;
+
+      if (scrollHeight <= 0) {
+        setProgress(0);
+        return;
+      }
+
+      setProgress((scrollTop / scrollHeight) * 100);
     };
 
-    window.addEventListener("scroll", handleScroll);
-    return () => window.removeEventListener("scroll", handleScroll);
+    updateProgress();
+    window.addEventListener("scroll", updateProgress);
+    window.addEventListener("resize", updateProgress);
+
+    return () => {
+      window.removeEventListener("scroll", updateProgress);
+      window.removeEventListener("resize", updateProgress);
+    };
   }, []);
 
   return (
-    <motion.div
-      style={{ width: `${progress}%` }}
-      className="fixed top-20 left-0 h-1 bg-gradient-to-r from-blue-500 to-cyan-500 z-40"
-      initial={{ width: 0 }}
-      transition={{ duration: 0.3 }}
-    />
+    <div className="fixed left-0 top-0 z-[60] h-1 w-full bg-transparent">
+      <div
+        className="h-full bg-gradient-to-r from-blue-500 via-cyan-500 to-emerald-500 transition-[width] duration-150"
+        style={{ width: `${progress}%` }}
+      />
+    </div>
   );
 };
 

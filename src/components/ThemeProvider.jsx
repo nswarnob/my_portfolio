@@ -1,33 +1,23 @@
 import { useEffect, useState } from "react";
 
+const getInitialTheme = () => {
+  if (typeof window === "undefined") return true;
+
+  const stored = window.localStorage.getItem("theme");
+  if (stored) return stored === "dark";
+
+  return window.matchMedia("(prefers-color-scheme: dark)").matches;
+};
+
 const ThemeProvider = ({ children }) => {
-  const [isDark, setIsDark] = useState(true);
-
-  useEffect(() => {
-    const stored = localStorage.getItem("theme");
-
-    if (stored) {
-      setIsDark(stored === "dark");
-    } else {
-      const prefersDark = window.matchMedia(
-        "(prefers-color-scheme: dark)",
-      ).matches;
-      setIsDark(prefersDark);
-    }
-  }, []);
+  const [isDark, setIsDark] = useState(getInitialTheme);
 
   useEffect(() => {
     const root = document.documentElement;
 
-    if (isDark) {
-      root.classList.add("dark");
-      root.classList.remove("light");
-      localStorage.setItem("theme", "dark");
-    } else {
-      root.classList.remove("dark");
-      root.classList.add("light");
-      localStorage.setItem("theme", "light");
-    }
+    root.classList.toggle("dark", isDark);
+    root.classList.toggle("light", !isDark);
+    localStorage.setItem("theme", isDark ? "dark" : "light");
   }, [isDark]);
 
   return children({ isDark, setIsDark });

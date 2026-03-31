@@ -24,6 +24,11 @@ export const data = {
       icon: "FiYoutube",
       url: "https://youtube.com/@nswarnob",
     },
+    {
+      name: "Instagram",
+      icon: "FiInstagram",
+      url: "https://instagram.com/nswarnob",
+    },
   ],
 
   skills: [
@@ -35,6 +40,9 @@ export const data = {
     "MongoDB",
     "Tailwind CSS",
     "Framer Motion",
+    "Rest APIs",
+    "Git",
+    "Docker",
   ],
 
   experience: [
@@ -97,12 +105,4 @@ export const data = {
     email: "nswarnob@gmail.com",
     message: "Feel free to reach out via email or connect on social media.",
   },
-
-  testimonials: [
-    {
-      author: "@user1",
-      text: "This is an amazing developer!",
-      avatar: "https://via.placeholder.com/50",
-    },
-  ],
 };

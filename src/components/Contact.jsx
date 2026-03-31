@@ -1,10 +1,10 @@
 import { motion } from "framer-motion";
-import { Mail, Github, Linkedin, Twitter } from "lucide-react";
+import { Mail } from "lucide-react";
 import { data } from "../data/portfolioData";
 import AnimatedBorderCard from "./AnimatedBorderCard";
 
 const Contact = () => {
-  const { contact, socials } = data;
+  const { contact } = data;
 
   const contactLinks = [
     {
@@ -14,24 +14,6 @@ const Contact = () => {
       color: "hover:text-red-400",
     },
   ];
-
-  // Add social links
-  const socialIcons = {
-    GitHub: { icon: Github, color: "hover:text-gray-400" },
-    X: { icon: Twitter, color: "hover:text-blue-400" },
-    LinkedIn: { icon: Linkedin, color: "hover:text-blue-600" },
-  };
-
-  socials.forEach((social) => {
-    if (socialIcons[social.name]) {
-      contactLinks.push({
-        icon: socialIcons[social.name].icon,
-        label: social.name,
-        href: social.url,
-        color: socialIcons[social.name].color,
-      });
-    }
-  });
 
   return (
     <section

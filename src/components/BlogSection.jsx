@@ -47,18 +47,14 @@ export default function BlogSection() {
           initial="hidden"
           whileInView="show"
           viewport={{ once: true, amount: 0.15 }}
-          className="space-y-8"
         >
           {/* Section Header */}
           <motion.div
             variants={itemVariants}
             className="flex flex-col gap-5 md:flex-row md:items-end md:justify-between"
           >
-            <div className="space-y-2 mx-auto ">
-              <h2 className="text-xl sm:text-gray-200xl font-semibold text-dark-100 ">
-                Articles I’ve published on DEV Community and Medium
-                <hr className="mt-6 opacity-15" />
-              </h2>
+            <div className="space-y-2 ">
+              <h2 className="text-xl sm:text-2xl font-bold mb-8">Articles</h2>
             </div>
           </motion.div>
 

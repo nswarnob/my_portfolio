@@ -7,21 +7,21 @@ import FloatingSearch from "./components/FloatingSearch";
 import ThemeProvider from "./components/ThemeProvider";
 import Home from "./pages/Home";
 import ProjectsPage from "./pages/ProjectsPage";
-import ProjectDetail from "./pages/ProjectDetail";
+import CliPage from "./pages/CliPage";
 
 function App() {
   return (
     <ThemeProvider>
       {({ isDark, setIsDark }) => (
         <BrowserRouter>
-          <div className="min-h-screen bg-white text-black transition-colors duration-300 dark:bg-[#09090b] dark:text-white">
+          <div className="min-h-screen bg-slate-50 text-slate-900 transition-colors duration-300 dark:bg-[#09090b] dark:text-white">
             <ScrollProgress />
             <Navbar isDark={isDark} setIsDark={setIsDark} />
             <FloatingSearch />
             <Routes>
               <Route path="/" element={<Home />} />
               <Route path="/projects" element={<ProjectsPage />} />
-              <Route path="/projects/:slug" element={<ProjectDetail />} />
+              <Route path="/cli" element={<CliPage />} />
             </Routes>
             <Footer />
           </div>
