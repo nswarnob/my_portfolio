@@ -26,14 +26,14 @@ export const blogs = [
   },
   {
     id: 3,
-    title: "My Favorite Frontend Workflow for Modern Web Projects",
-    platform: "Medium",
-    publishDate: "2026-02-10",
-    url: "https://nswarnob.medium.com/my-favorite-frontend-workflow-for-modern-web-projects-abcd1234",
+    title: "How I Built a Full Stack Website (MERN)",
+    platform: "DEV",
+    publishDate: "2026-04-12",
+    url: "https://dev.to/nswarnob/how-i-built-a-full-stack-website-mern-2hg6",
     coverImage: "",
     description:
-      "A look into the tools, setup, and habits I use to build clean, maintainable frontend projects faster and with better consistency.",
-    tags: ["Frontend", "Workflow", "JavaScript"],
+      "In this article, I will share my experience of building a full-stack website using the MERN stack (MongoDB, Express.js, React.js, Node.js). I will discuss the challenges I faced, the tools and technologies I used, and the lessons I learned along the way.",
+    tags: ["Frontend", "Workflow", "MERN"],
   },
   {
     id: 4,

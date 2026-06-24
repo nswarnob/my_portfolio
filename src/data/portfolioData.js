@@ -48,7 +48,7 @@ export const data = {
   experience: [
     {
       company: "Fiverr",
-      role: "Web Developer",
+      role: "Web Developer & Digital Marketer",
       badge: "Level 1 Seller",
       dates: "Dec 2022 - Present",
       logo: "https://www.fiverr.com/favicon.ico",
@@ -84,6 +84,39 @@ export const data = {
       liveUrl: "https://nswarnob.github.io/pet-care-in-winter/",
       repoUrl: "https://github.com/nswarnob/pet-care-in-winter.git",
     },
+    {
+      title: "Zep-Shift, Parcel Delivery & Logistics Management",
+      dates: "2025",
+      description:
+        "A modern, full-featured parcel delivery and logistics management platform built with React and Vite. Zep Shift provides seamless parcel tracking, booking, and delivery management across Bangladesh.",
+      image:
+        "https://fiverr-res.cloudinary.com/image/upload/f_auto,q_auto/v1/attachments/project_item/attachment/0e7b8c3d9a2e4f5b8c3d9a2e4f5b8c3d-1771772124630/Screenshot_2024-02-21_20-28-04.png",
+      technologies: ["React", "Tailwind CSS", "Framer Motion"],
+      liveUrl: "https://zep-shift-client.vercel.app/",
+      repoUrl: "https://github.com/nswarnob/zep-shift-client.git",
+    },
+    {
+      title: "The Dragon News - News Portal",
+      dates: "2024",
+      description:
+        "A modern news portal built with React and Vite. The Dragon News provides up-to-date information on various topics, including sports, technology, and entertainment.",
+      image:
+        "https://fiverr-res.cloudinary.com/image/upload/f_auto,q_auto/v1/attachments/project_item/attachment/0e7b8c3d9a2e4f5b8c3d9a2e4f5b8c3d-1771772124630/Screenshot_2024-02-21_20-28-04.png",
+      technologies: ["React", "Tailwind CSS", "Framer Motion"],
+      liveUrl: "https://nswarnob.github.io/news-paper-project/category/0",
+      repoUrl: "https://github.com/nswarnob/news-paper-project.git",
+    },
+    {
+      tittle: "English Janala - English Learning Platform",
+      dates: "2024",
+      description:
+        "English Janala is a comprehensive English learning platform designed to help learners of all levels improve their language skills. The platform offers a variety of interactive lessons, exercises, and resources to enhance vocabulary, grammar, listening, speaking, reading, and writing abilities.",
+      image:
+        "https://fiverr-res.cloudinary.com/image/upload/f_auto,q_auto/v1/attachments/project_item/attachment/0e7b8c3d9a2e4f5b8c3d9a2e4f5b8c3d-1771772124630/Screenshot_2024-02-21_20-28-04.png",
+      technologies: ["JavaScript", "Tailwind CSS", "Framer Motion"],
+      liveUrl: "https://nswarnob.github.io/English-Janala-a-dictionary-/",
+      repoUrl: "https://github.com/nswarnob/english-janala.git",
+    },
   ],
 
   education: [
@@ -98,6 +131,24 @@ export const data = {
       degree: "Diploma in Computer Technology",
       years: "2020 - 2024",
       logo: "https://sylhet.polytech.gov.bd/site-assets/images/logo.png",
+    },
+    {
+      name: "Power Development Board High School, Shahjibazar",
+      degree: "Secondary School Certificate (SSC)",
+      years: "2018 - 2020",
+      logo: "https://upload.wikimedia.org/wikipedia/en/thumb/3/3e/Sylhet_Government_Pilot_High_School_Logo.png/220px-Sylhet_Government_Pilot_High_School_Logo.png",
+    },
+    {
+      name: "Syed Sayeed Uddin High School & College",
+      degree: "Junior School Certificate (JSC)",
+      years: "2014 - 2018",
+      logo: "https://upload.wikimedia.org/wikipedia/en/thumb/3/3e/Sylhet_Government_Pilot_High_School_Logo.png/220px-Sylhet_Government_Pilot_High_School_Logo.png",
+    },
+    {
+      name: "Satpariya Government Primary School",
+      degree: "Primary School Certificate (PSC)",
+      years: "2010 - 2014",
+      logo: "https://upload.wikimedia.org/wikipedia/en/thumb/3/3e/Sylhet_Government_Pilot_High_School_Logo.png/220px-Sylhet_Government_Pilot_High_School_Logo.png",
     },
   ],
 
