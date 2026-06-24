@@ -96,17 +96,6 @@ export const data = {
       repoUrl: "https://github.com/nswarnob/zep-shift-client.git",
     },
     {
-      title: "The Dragon News - News Portal",
-      dates: "2024",
-      description:
-        "A modern news portal built with React and Vite. The Dragon News provides up-to-date information on various topics, including sports, technology, and entertainment.",
-      image:
-        "https://fiverr-res.cloudinary.com/image/upload/f_auto,q_auto/v1/attachments/project_item/attachment/0e7b8c3d9a2e4f5b8c3d9a2e4f5b8c3d-1771772124630/Screenshot_2024-02-21_20-28-04.png",
-      technologies: ["React", "Tailwind CSS", "Framer Motion"],
-      liveUrl: "https://nswarnob.github.io/news-paper-project/category/0",
-      repoUrl: "https://github.com/nswarnob/news-paper-project.git",
-    },
-    {
       tittle: "English Janala - English Learning Platform",
       dates: "2024",
       description:
