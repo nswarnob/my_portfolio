@@ -95,17 +95,18 @@ export const data = {
       liveUrl: "https://zep-shift-client.vercel.app/",
       repoUrl: "https://github.com/nswarnob/zep-shift-client.git",
     },
-    {
-      tittle: "English Janala - English Learning Platform",
+        {
+      title: "English Janala - English Learning Platform",
       dates: "2024",
       description:
         "English Janala is a comprehensive English learning platform designed to help learners of all levels improve their language skills. The platform offers a variety of interactive lessons, exercises, and resources to enhance vocabulary, grammar, listening, speaking, reading, and writing abilities.",
       image:
         "https://fiverr-res.cloudinary.com/image/upload/f_auto,q_auto/v1/attachments/project_item/attachment/0e7b8c3d9a2e4f5b8c3d9a2e4f5b8c3d-1771772124630/Screenshot_2024-02-21_20-28-04.png",
-      technologies: ["JavaScript", "Tailwind CSS", "Framer Motion"],
+      technologies: ["React", "Tailwind CSS", "Framer Motion"],
       liveUrl: "https://nswarnob.github.io/English-Janala-a-dictionary-/",
       repoUrl: "https://github.com/nswarnob/english-janala.git",
     },
+    
   ],
 
   education: [

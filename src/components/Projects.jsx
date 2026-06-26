@@ -15,24 +15,26 @@ const Projects = () => {
     >
       <div className="max-w-6xl mx-auto">
         <motion.h2
-          initial={{ opacity: 0 }}
-          whileInView={{ opacity: 1 }}
-          viewport={{ once: true }}
+          initial={{ opacity: 0, y: 12 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, amount: 0.2 }}
+          transition={{ duration: 0.5, ease: "easeOut" }}
           className="text-xl sm:text-2xl font-bold mb-8"
         >
           Featured Projects
         </motion.h2>
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-8">
-          {projects.map((proj, idx) => (
+          {projects.slice(0, 2).map((proj, idx) => (
             <ProjectCard key={idx} project={proj} index={idx} />
           ))}
         </div>
 
         <motion.div
-          initial={{ opacity: 0 }}
-          whileInView={{ opacity: 1 }}
-          viewport={{ once: true }}
+          initial={{ opacity: 0, y: 12 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, amount: 0.2 }}
+          transition={{ duration: 0.5, ease: "easeOut" }}
         >
           <Link
             to="/projects"

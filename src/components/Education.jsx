@@ -1,10 +1,14 @@
+import { useState } from "react";
 import { motion } from "framer-motion";
 import { data } from "../data/portfolioData";
 
 const Education = () => {
   const { education } = data;
+  const [showAll, setShowAll] = useState(false);
 
   if (!education || education.length === 0) return null;
+
+  const visibleEducation = showAll ? education : education.slice(0, 2);
 
   const containerVariants = {
     hidden: { opacity: 0 },
@@ -32,15 +36,16 @@ const Education = () => {
     >
       <div className="max-w-6xl mx-auto">
         <motion.h2
-          initial={{ opacity: 0 }}
-          whileInView={{ opacity: 1 }}
-          viewport={{ once: true }}
+          initial={{ opacity: 0, y: 12 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, amount: 0.2 }}
+          transition={{ duration: 0.5, ease: "easeOut" }}
           className="text-xl sm:text-2xl font-bold mb-8"
         >
           Education
         </motion.h2>
         <div className="space-y-4">
-          {education.map((edu, idx) => (
+          {visibleEducation.map((edu, idx) => (
             <motion.div
               key={idx}
               initial={{ opacity: 0, x: -30 }}
@@ -66,6 +71,25 @@ const Education = () => {
             </motion.div>
           ))}
         </div>
+
+        {education.length > 2 && (
+          <motion.div
+            initial={{ opacity: 0, y: 10 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, amount: 0.2 }}
+            transition={{ duration: 0.4, ease: "easeOut" }}
+            className="mt-6 flex justify-center"
+          >
+            <motion.button
+              whileHover={{ y: -2, scale: 1.02 }}
+              whileTap={{ scale: 0.97 }}
+              onClick={() => setShowAll((prev) => !prev)}
+              className="rounded-lg border border-white/10 px-4 py-3 text-sm font-medium text-dark-300 transition-colors duration-300 hover:border-white/20 hover:text-dark-100"
+            >
+              {showAll ? "Show Less" : "More"}
+            </motion.button>
+          </motion.div>
+        )}
       </div>
     </section>
   );

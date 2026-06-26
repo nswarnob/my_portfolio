@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { motion } from "framer-motion";
+import { motion as Motion } from "framer-motion";
 import { Github, Linkedin, Twitter, Youtube, Instagram } from "lucide-react";
 import { data } from "../data/portfolioData";
 
@@ -47,7 +47,7 @@ const Hero = () => {
       className="relative  pt-12 sm:pt-16 lg:pt-24 pb-2 px-4 sm:px-6 lg:px-8"
     >
       <div className="relative z-10 px-4 sm:px-6 flex items-center justify-center my-8">
-        <motion.div
+        <Motion.div
           variants={container}
           initial="hidden"
           whileInView="show"
@@ -55,61 +55,76 @@ const Hero = () => {
           className="space-y-6 text-left flex-1 relative w-full"
         >
           {photo && (
-            <div className="absolute top-4 right-4 w-20 h-20 sm:w-28 sm:h-28 md:w-40 md:h-40">
-              <div className="avatar-border">
-                <div className="w-full h-full rounded-full overflow-hidden bg-dark-950">
-                  <img
-                    src={photo}
-                    alt={name}
-                    className="w-full h-full object-cover rounded-full"
-                  />
+            <div className="absolute top-4 right-4 flex flex-col items-center gap-2">
+              <div className="w-20 h-20 sm:w-28 sm:h-28 md:w-40 md:h-40">
+                <div className="avatar-border">
+                  <div className="w-full h-full rounded-full overflow-hidden bg-dark-950">
+                    <img
+                      src={photo}
+                      alt={name}
+                      className="w-full h-full object-cover rounded-full"
+                    />
+                  </div>
                 </div>
               </div>
+              <a
+                href="/resume.pdf"
+                download="Sharif_Uddin_Arnob_Resume.pdf"
+                className="inline-flex items-center justify-center rounded-full border border-white/15 bg-white/10 px-3 py-2 text-[10px] font-medium text-dark-100 backdrop-blur-sm transition-all duration-300 hover:-translate-y-0.5 hover:border-white/30 hover:bg-white/15 sm:px-4 sm:py-2.5 sm:text-xs"
+              >
+                Download Resume
+              </a>
             </div>
           )}
 
           <div>
-            <motion.h1
+            <Motion.h1
               variants={item}
               className="text-2xl sm:text-4xl font-bold leading-tight"
             >
               Hey, {name.split(" ")[0]} here
-            </motion.h1>
-            <motion.p
+            </Motion.h1>
+            <Motion.p
               variants={item}
               className="text-base sm:text-lg text-dark-400"
             >
               been on earth for {age.toFixed(9)} years
-            </motion.p>
+            </Motion.p>
           </div>
 
-          <motion.div variants={item}>
+          <Motion.div variants={item}>
             <h4 className="text-xl sm:text-2xl font-medium mb-3">About me</h4>
             <div className="prose prose-sm text-dark-300">
               {about.map((line, idx) => (
                 <p key={idx} dangerouslySetInnerHTML={{ __html: line }} />
               ))}
             </div>
-          </motion.div>
+          </Motion.div>
 
-          <motion.div variants={item} className="flex gap-4">
+          <Motion.div
+            variants={item}
+            className="flex gap-4"
+            transition={{ duration: 0.4, ease: "easeOut" }}
+          >
             {socials.map((s) => {
               const Icon = socialIcons[s.icon];
               return (
-                <a
+                <Motion.a
                   key={s.name}
                   href={s.url}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="text-dark-300 transition-all duration-300 hover:scale-110 hover:text-dark-100"
+                  whileHover={{ scale: 1.12, y: -2 }}
+                  whileTap={{ scale: 0.95 }}
+                  className="text-dark-300 transition-colors duration-300 hover:text-dark-100"
                 >
                   {Icon && <Icon size={24} />}
-                </a>
+                </Motion.a>
               );
             })}
-          </motion.div>
+          </Motion.div>
 
-          <motion.div variants={item}>
+          <Motion.div variants={item}>
             <h4 className="text-xl sm:text-2xl font-medium mb-3">Skills</h4>
             <div className="flex flex-wrap gap-2">
               {skills.map((skill, i) => (
@@ -121,8 +136,8 @@ const Hero = () => {
                 </span>
               ))}
             </div>
-          </motion.div>
-        </motion.div>
+          </Motion.div>
+        </Motion.div>
       </div>
     </section>
   );
