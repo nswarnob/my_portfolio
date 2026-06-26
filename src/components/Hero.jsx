@@ -52,17 +52,17 @@ const Hero = () => {
           initial="hidden"
           whileInView="show"
           viewport={{ once: true }}
-          className="space-y-6 text-left flex-1 relative w-full"
+          className="relative w-full flex-1 space-y-6 text-left pr-0 sm:pr-24"
         >
           {photo && (
-            <div className="absolute top-4 right-4 flex flex-col items-center gap-2">
-              <div className="w-20 h-20 sm:w-28 sm:h-28 md:w-40 md:h-40">
+            <div className="absolute right-0 top-0 hidden flex-col items-center gap-2 sm:flex">
+              <div className="h-28 w-28 md:h-32 md:w-32 lg:h-40 lg:w-40">
                 <div className="avatar-border">
-                  <div className="w-full h-full rounded-full overflow-hidden bg-dark-950">
+                  <div className="h-full w-full overflow-hidden rounded-full bg-dark-950">
                     <img
                       src={photo}
                       alt={name}
-                      className="w-full h-full object-cover rounded-full"
+                      className="h-full w-full rounded-full object-cover"
                     />
                   </div>
                 </div>
