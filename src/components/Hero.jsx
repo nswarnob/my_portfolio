@@ -56,7 +56,7 @@ const Hero = () => {
         >
           {photo && (
             <div className="absolute right-0 top-0 hidden flex-col items-center gap-2 sm:flex">
-              <div className="h-28 w-28 md:h-32 md:w-32 lg:h-40 lg:w-40">
+              <div className="h-24 w-24 sm:h-24 sm:w-24 md:h-28 md:w-28 lg:h-36 lg:w-36">
                 <div className="avatar-border">
                   <div className="h-full w-full overflow-hidden rounded-full bg-dark-950">
                     <img
@@ -70,7 +70,7 @@ const Hero = () => {
               <a
                 href="/resume.pdf"
                 download="Sharif_Uddin_Arnob_Resume.pdf"
-                className="inline-flex items-center justify-center rounded-full border border-white/15 bg-white/10 px-3 py-2 text-[10px] font-medium text-dark-100 backdrop-blur-sm transition-all duration-300 hover:-translate-y-0.5 hover:border-white/30 hover:bg-white/15 sm:px-4 sm:py-2.5 sm:text-xs"
+                className="inline-flex items-center justify-center rounded-full border border-white/15 bg-white/10 px-2.5 py-1.5 text-[10px] font-medium text-dark-100 backdrop-blur-sm transition-all duration-300 hover:-translate-y-0.5 hover:border-white/30 hover:bg-white/15 sm:px-3 sm:py-2 sm:text-xs"
               >
                 Download Resume
               </a>
