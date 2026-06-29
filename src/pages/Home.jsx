@@ -19,7 +19,7 @@ const Home = () => {
       <MeteorBackground />
       <Hero />
       <GithubContributions />
-      <Experience /> 
+      <Experience />
       <Projects />
       <Education />
       <BlogSection />

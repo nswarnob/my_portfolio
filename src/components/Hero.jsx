@@ -55,8 +55,8 @@ const Hero = () => {
           className="relative w-full flex-1 space-y-6 text-left pr-0 sm:pr-24"
         >
           {photo && (
-            <div className="absolute right-0 top-0 hidden flex-col items-center gap-2 sm:flex">
-              <div className="h-24 w-24 sm:h-24 sm:w-24 md:h-28 md:w-28 lg:h-36 lg:w-36">
+            <div className="mb-4 flex flex-row items-center justify-start gap-3 sm:absolute sm:right-0 sm:top-0 sm:mb-0 sm:flex-col sm:items-center sm:gap-2">
+              <div className="h-20 w-20 shrink-0 sm:h-24 sm:w-24 md:h-28 md:w-28 lg:h-36 lg:w-36">
                 <div className="avatar-border">
                   <div className="h-full w-full overflow-hidden rounded-full bg-dark-950">
                     <img
