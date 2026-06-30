@@ -1,6 +1,13 @@
 import { useEffect, useState } from "react";
 import { motion as Motion } from "framer-motion";
-import { Github, Linkedin, Twitter, Youtube, Instagram } from "lucide-react";
+import {
+  Github,
+  Linkedin,
+  Twitter,
+  Youtube,
+  Instagram,
+  Download,
+} from "lucide-react";
 import { data } from "../data/portfolioData";
 
 const Hero = () => {
@@ -9,19 +16,20 @@ const Hero = () => {
   const [age, setAge] = useState(0);
 
   useEffect(() => {
+    let animationFrameId;
+
     const updateAge = () => {
       const birth = new Date(dob);
       const ageInYears =
         (Date.now() - birth.getTime()) / (1000 * 60 * 60 * 24 * 365.25);
 
       setAge(ageInYears);
+      animationFrameId = requestAnimationFrame(updateAge);
     };
 
-    updateAge();
+    animationFrameId = requestAnimationFrame(updateAge);
 
-    const interval = setInterval(updateAge, 1000);
-
-    return () => clearInterval(interval);
+    return () => cancelAnimationFrame(animationFrameId);
   }, [dob]);
 
   const socialIcons = {
@@ -54,32 +62,34 @@ const Hero = () => {
       id="home"
       className="relative  pt-12 sm:pt-16 lg:pt-24 pb-2 px-4 sm:px-6 lg:px-8"
     >
-      <div className="relative z-10 px-4 sm:px-6 flex flex-col-reverse md:flex-row items-start md:items-center justify-center gap-4 md:gap-8 my-8">
+      <div className="relative z-10 px-4 sm:px-6 flex flex-row items-start justify-center gap-3 sm:gap-4 md:gap-8 my-8">
         <Motion.div
           variants={container}
           initial="hidden"
           whileInView="show"
           viewport={{ once: true }}
-          className="relative flex-1 space-y-6 text-left"
+          className="relative flex-1 space-y-4 sm:space-y-6 text-left"
         >
           <div>
             <Motion.h1
               variants={item}
-              className="text-2xl sm:text-4xl font-bold leading-tight"
+              className="text-xl sm:text-3xl md:text-4xl font-bold leading-tight"
             >
               Hey, {name.split(" ")[0]} here
             </Motion.h1>
             <Motion.p
               variants={item}
-              className="text-base sm:text-lg text-dark-400"
+              className="text-sm sm:text-base md:text-lg text-dark-400"
             >
               been on earth for {age.toFixed(9)} years
             </Motion.p>
           </div>
 
           <Motion.div variants={item}>
-            <h4 className="text-xl sm:text-2xl font-medium mb-3">About me</h4>
-            <div className="prose prose-sm text-dark-300">
+            <h4 className="text-lg sm:text-xl md:text-2xl font-medium mb-2 sm:mb-3">
+              About me
+            </h4>
+            <div className="prose prose-sm text-dark-300 text-xs sm:text-sm">
               {about.map((line, idx) => (
                 <p key={idx} dangerouslySetInnerHTML={{ __html: line }} />
               ))}
@@ -88,7 +98,7 @@ const Hero = () => {
 
           <Motion.div
             variants={item}
-            className="flex gap-4"
+            className="flex gap-3 sm:gap-4"
             transition={{ duration: 0.4, ease: "easeOut" }}
           >
             {socials.map((s) => {
@@ -110,12 +120,14 @@ const Hero = () => {
           </Motion.div>
 
           <Motion.div variants={item}>
-            <h4 className="text-xl sm:text-2xl font-medium mb-3">Skills</h4>
-            <div className="flex flex-wrap gap-2">
+            <h4 className="text-lg sm:text-xl md:text-2xl font-medium mb-2 sm:mb-3">
+              Skills
+            </h4>
+            <div className="flex flex-wrap gap-1.5 sm:gap-2">
               {skills.map((skill, i) => (
                 <span
                   key={i}
-                  className="px-3 py-1 bg-dark-800 rounded-full text-xs sm:text-sm text-dark-200"
+                  className="px-2 sm:px-3 py-0.5 sm:py-1 bg-dark-800 rounded-full text-[10px] sm:text-xs md:text-sm text-dark-200"
                 >
                   {skill}
                 </span>
@@ -129,9 +141,9 @@ const Hero = () => {
             initial="hidden"
             whileInView="show"
             viewport={{ once: true }}
-            className="flex flex-col items-center gap-2 shrink-0 md:mt-0"
+            className="flex flex-col items-center gap-1.5 sm:gap-2 md:gap-2 shrink-0"
           >
-            <div className="h-20 w-20 sm:h-24 sm:w-24 md:h-36 md:w-36">
+            <div className="h-16 w-16 sm:h-20 sm:w-20 md:h-36 md:w-36">
               <div className="avatar-border">
                 <div className="h-full w-full overflow-hidden rounded-full bg-dark-950">
                   <img
@@ -147,9 +159,10 @@ const Hero = () => {
               download="Sharif_Uddin_Arnob_Resume.pdf"
               whileHover={{ scale: 1.05, y: -2 }}
               whileTap={{ scale: 0.95 }}
-              className="inline-flex items-center justify-center rounded-full border border-white/15 bg-white/10 px-2.5 py-1.5 text-[10px] font-medium text-dark-100 backdrop-blur-sm transition-all duration-300 hover:border-white/30 hover:bg-white/15 sm:px-3 sm:py-2 sm:text-xs md:px-4 md:py-2 md:text-sm cursor-pointer"
+              className="inline-flex items-center justify-center gap-1.5 sm:gap-2 rounded-full px-3 sm:px-4 md:px-5 py-1.5 sm:py-2 md:py-2.5 text-[10px] sm:text-xs md:text-sm font-medium text-dark-100 backdrop-blur-sm transition-all duration-300 cursor-pointer border border-transparent resume-button-border"
             >
-              Download Resume
+              <Download className="w-4 h-4 sm:w-5 sm:h-5" />
+              <span>Resume</span>
             </Motion.a>
           </Motion.div>
         )}

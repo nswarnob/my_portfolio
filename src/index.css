@@ -169,3 +169,42 @@ body {
     background-position: 170% 30%;
   }
 }
+
+@keyframes buttonBorderFlow {
+  0% {
+    background-position:
+      0% 50%,
+      0% 50%;
+  }
+  100% {
+    background-position:
+      0% 50%,
+      170% 30%;
+  }
+}
+
+.resume-button-border {
+  position: relative;
+  background: rgb(20, 20, 25);
+  background-clip: padding-box;
+  border: 1px solid transparent;
+  background-image:
+    linear-gradient(rgb(20, 20, 25), rgb(20, 20, 25)),
+    linear-gradient(
+      120deg,
+      rgba(59, 130, 246, 0.15) 0%,
+      rgba(59, 130, 246, 0.9) 18%,
+      rgba(6, 182, 212, 1) 28%,
+      rgba(255, 255, 255, 0.15) 36%,
+      rgba(6, 182, 212, 0.25) 48%,
+      rgba(59, 130, 246, 0.85) 62%,
+      rgba(6, 182, 212, 1) 74%,
+      rgba(59, 130, 246, 0.12) 100%
+    );
+  background-origin: border-box;
+  background-clip: padding-box, border-box;
+  background-size:
+    auto,
+    250% 250%;
+  animation: buttonBorderFlow 4s linear infinite;
+}
