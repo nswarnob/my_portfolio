@@ -54,37 +54,7 @@ const Hero = () => {
       id="home"
       className="relative  pt-12 sm:pt-16 lg:pt-24 pb-2 px-4 sm:px-6 lg:px-8"
     >
-      <div className="relative z-10 px-4 sm:px-6 flex flex-col md:flex-row items-start md:items-center justify-center gap-6 md:gap-8 my-8">
-        {photo && (
-          <Motion.div
-            variants={photoContainer}
-            initial="hidden"
-            whileInView="show"
-            viewport={{ once: true }}
-            className="flex flex-col items-center gap-2 shrink-0"
-          >
-            <div className="h-24 w-24 sm:h-28 sm:w-28 md:h-36 md:w-36">
-              <div className="avatar-border">
-                <div className="h-full w-full overflow-hidden rounded-full bg-dark-950">
-                  <img
-                    src={photo}
-                    alt={name}
-                    className="h-full w-full rounded-full object-cover"
-                  />
-                </div>
-              </div>
-            </div>
-            <Motion.a
-              href="/resume.pdf"
-              download="Sharif_Uddin_Arnob_Resume.pdf"
-              whileHover={{ scale: 1.05, y: -2 }}
-              whileTap={{ scale: 0.95 }}
-              className="inline-flex items-center justify-center rounded-full border border-white/15 bg-white/10 px-3 py-2 text-xs font-medium text-dark-100 backdrop-blur-sm transition-all duration-300 hover:border-white/30 hover:bg-white/15 sm:px-4 sm:py-2 sm:text-sm cursor-pointer"
-            >
-              Download Resume
-            </Motion.a>
-          </Motion.div>
-        )}
+      <div className="relative z-10 px-4 sm:px-6 flex flex-col-reverse md:flex-row items-start md:items-center justify-center gap-4 md:gap-8 my-8">
         <Motion.div
           variants={container}
           initial="hidden"
@@ -153,6 +123,36 @@ const Hero = () => {
             </div>
           </Motion.div>
         </Motion.div>
+        {photo && (
+          <Motion.div
+            variants={photoContainer}
+            initial="hidden"
+            whileInView="show"
+            viewport={{ once: true }}
+            className="flex flex-col items-center gap-2 shrink-0 md:mt-0"
+          >
+            <div className="h-20 w-20 sm:h-24 sm:w-24 md:h-36 md:w-36">
+              <div className="avatar-border">
+                <div className="h-full w-full overflow-hidden rounded-full bg-dark-950">
+                  <img
+                    src={photo}
+                    alt={name}
+                    className="h-full w-full rounded-full object-cover"
+                  />
+                </div>
+              </div>
+            </div>
+            <Motion.a
+              href="/resume.pdf"
+              download="Sharif_Uddin_Arnob_Resume.pdf"
+              whileHover={{ scale: 1.05, y: -2 }}
+              whileTap={{ scale: 0.95 }}
+              className="inline-flex items-center justify-center rounded-full border border-white/15 bg-white/10 px-2.5 py-1.5 text-[10px] font-medium text-dark-100 backdrop-blur-sm transition-all duration-300 hover:border-white/30 hover:bg-white/15 sm:px-3 sm:py-2 sm:text-xs md:px-4 md:py-2 md:text-sm cursor-pointer"
+            >
+              Download Resume
+            </Motion.a>
+          </Motion.div>
+        )}
       </div>
     </section>
   );
