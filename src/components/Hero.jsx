@@ -40,43 +40,58 @@ const Hero = () => {
     hidden: { opacity: 0, y: 20 },
     show: { opacity: 1, y: 0, transition: { duration: 0.6, ease: "easeOut" } },
   };
+  const photoContainer = {
+    hidden: { opacity: 0, scale: 0.8 },
+    show: {
+      opacity: 1,
+      scale: 1,
+      transition: { duration: 0.6, ease: "easeOut" },
+    },
+  };
 
   return (
     <section
       id="home"
       className="relative  pt-12 sm:pt-16 lg:pt-24 pb-2 px-4 sm:px-6 lg:px-8"
     >
-      <div className="relative z-10 px-4 sm:px-6 flex items-center justify-center my-8">
+      <div className="relative z-10 px-4 sm:px-6 flex flex-col md:flex-row items-start md:items-center justify-center gap-6 md:gap-8 my-8">
+        {photo && (
+          <Motion.div
+            variants={photoContainer}
+            initial="hidden"
+            whileInView="show"
+            viewport={{ once: true }}
+            className="flex flex-col items-center gap-2 shrink-0"
+          >
+            <div className="h-24 w-24 sm:h-28 sm:w-28 md:h-36 md:w-36">
+              <div className="avatar-border">
+                <div className="h-full w-full overflow-hidden rounded-full bg-dark-950">
+                  <img
+                    src={photo}
+                    alt={name}
+                    className="h-full w-full rounded-full object-cover"
+                  />
+                </div>
+              </div>
+            </div>
+            <Motion.a
+              href="/resume.pdf"
+              download="Sharif_Uddin_Arnob_Resume.pdf"
+              whileHover={{ scale: 1.05, y: -2 }}
+              whileTap={{ scale: 0.95 }}
+              className="inline-flex items-center justify-center rounded-full border border-white/15 bg-white/10 px-3 py-2 text-xs font-medium text-dark-100 backdrop-blur-sm transition-all duration-300 hover:border-white/30 hover:bg-white/15 sm:px-4 sm:py-2 sm:text-sm cursor-pointer"
+            >
+              Download Resume
+            </Motion.a>
+          </Motion.div>
+        )}
         <Motion.div
           variants={container}
           initial="hidden"
           whileInView="show"
           viewport={{ once: true }}
-          className="relative w-full flex-1 space-y-6 text-left pr-0 sm:pr-24"
+          className="relative flex-1 space-y-6 text-left"
         >
-          {photo && (
-            <div className="mb-4 flex flex-row items-center justify-start gap-3 sm:absolute sm:right-0 sm:top-0 sm:mb-0 sm:flex-col sm:items-center sm:gap-2">
-              <div className="h-20 w-20 shrink-0 sm:h-24 sm:w-24 md:h-28 md:w-28 lg:h-36 lg:w-36">
-                <div className="avatar-border">
-                  <div className="h-full w-full overflow-hidden rounded-full bg-dark-950">
-                    <img
-                      src={photo}
-                      alt={name}
-                      className="h-full w-full rounded-full object-cover"
-                    />
-                  </div>
-                </div>
-              </div>
-              <a
-                href="/resume.pdf"
-                download="Sharif_Uddin_Arnob_Resume.pdf"
-                className="inline-flex items-center justify-center rounded-full border border-white/15 bg-white/10 px-2.5 py-1.5 text-[10px] font-medium text-dark-100 backdrop-blur-sm transition-all duration-300 hover:-translate-y-0.5 hover:border-white/30 hover:bg-white/15 sm:px-3 sm:py-2 sm:text-xs"
-              >
-                Download Resume
-              </a>
-            </div>
-          )}
-
           <div>
             <Motion.h1
               variants={item}
