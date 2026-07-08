@@ -208,3 +208,20 @@ body {
     250% 250%;
   animation: buttonBorderFlow 4s linear infinite;
 }
+
+.light .resume-button-border {
+  background: rgb(248, 250, 252);
+  background-image:
+    linear-gradient(rgb(248, 250, 252), rgb(248, 250, 252)),
+    linear-gradient(
+      120deg,
+      rgba(59, 130, 246, 0.15) 0%,
+      rgba(59, 130, 246, 0.9) 18%,
+      rgba(6, 182, 212, 1) 28%,
+      rgba(255, 255, 255, 0.15) 36%,
+      rgba(6, 182, 212, 0.25) 48%,
+      rgba(59, 130, 246, 0.85) 62%,
+      rgba(6, 182, 212, 1) 74%,
+      rgba(59, 130, 246, 0.12) 100%
+    );
+}

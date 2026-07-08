@@ -1,15 +1,19 @@
 import { useState, useEffect } from "react";
 import { Link, useLocation } from "react-router-dom";
 import { motion, AnimatePresence } from "framer-motion";
-import { Menu, X, Terminal } from "lucide-react";
+import { Menu, X, Terminal, Clock3, CloudSun } from "lucide-react";
 import ThemeToggle from "./ThemeToggle";
 import { data } from "../data/portfolioData";
+import { fetchLocation, fetchWeather } from "../services/locationService";
 
 const Navbar = ({ isDark, setIsDark }) => {
   const location = useLocation();
   const [isOpen, setIsOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
   const [activeSection, setActiveSection] = useState("home");
+  const [currentTime, setCurrentTime] = useState("");
+  const [currentWeather, setCurrentWeather] = useState(null);
+  const [currentLocation, setCurrentLocation] = useState(null);
   const isHomePage = location.pathname === "/";
 
   useEffect(() => {
@@ -23,6 +27,61 @@ const Navbar = ({ isDark, setIsDark }) => {
   useEffect(() => {
     setIsOpen(false);
   }, [location.pathname]);
+
+  useEffect(() => {
+    const updateTime = () => {
+      const now = new Date();
+      setCurrentTime(
+        now.toLocaleTimeString([], {
+          hour: "numeric",
+          minute: "2-digit",
+          hour12: true,
+        }),
+      );
+    };
+
+    updateTime();
+    const intervalId = window.setInterval(updateTime, 1000);
+
+    return () => window.clearInterval(intervalId);
+  }, []);
+
+  useEffect(() => {
+    let isMounted = true;
+
+    const loadLocation = async () => {
+      const location = await fetchLocation();
+      if (!isMounted) return;
+      setCurrentLocation(location);
+    };
+
+    loadLocation();
+    const locationIntervalId = window.setInterval(loadLocation, 15000);
+
+    return () => {
+      isMounted = false;
+      window.clearInterval(locationIntervalId);
+    };
+  }, []);
+
+  useEffect(() => {
+    let isMounted = true;
+
+    const loadWeather = async () => {
+      if (!currentLocation?.city) return;
+      const weather = await fetchWeather(currentLocation);
+      if (isMounted) setCurrentWeather(weather);
+    };
+
+    loadWeather();
+    const weatherIntervalId = window.setInterval(loadWeather, 15 * 60 * 1000);
+
+    return () => {
+      isMounted = false;
+      window.clearInterval(weatherIntervalId);
+    };
+  }, [currentLocation?.city, currentLocation?.country]);
+
   const navLinks = [
     { name: "Work", href: "#experience" },
     { name: "Projects", href: "#projects" },
@@ -52,9 +111,9 @@ const Navbar = ({ isDark, setIsDark }) => {
             {data.name.split(" ")[0]}
           </Link>
 
-          {/* Desktop Navigation */}
+          {/* Desktop Navigation - Centered */}
           {isHomePage && (
-            <div className="hidden md:flex items-center gap-6">
+            <div className="hidden md:flex absolute left-1/2 transform -translate-x-1/2 items-center gap-8">
               {navLinks.map((link) => (
                 <a
                   key={link.name}
@@ -68,14 +127,28 @@ const Navbar = ({ isDark, setIsDark }) => {
           )}
 
           {/* Right side icons */}
-          <div className="flex items-center gap-4">
+          <div className="flex items-center gap-1.5 sm:gap-2 ml-auto">
+            <div className="hidden md:flex items-center gap-2">
+              <div className="flex items-center gap-1.5 border-b border-slate-300 px-2.5 py-1.5 text-[11px] text-slate-700 shadow-sm backdrop-blur-md dark:border-white/10 dark:text-dark-200">
+                <Clock3 size={12} className="text-cyan-400" />
+                <span>{currentTime || "--:--"}</span>
+              </div>
+              <div className="flex items-center gap-1.5 border-b border-slate-300 px-2.5 py-1.5 text-[11px] text-slate-700 shadow-sm backdrop-blur-md dark:border-white/10 dark:text-dark-200">
+                <CloudSun size={12} className="text-sky-400" />
+                <span>
+                  {currentWeather?.temperature != null
+                    ? `${Math.round(currentWeather.temperature)}°C`
+                    : "--"}
+                </span>
+              </div>
+            </div>
             <Link
               to="/cli"
-              className="rounded-lg bg-slate-100 p-2 text-slate-700 transition-colors hover:bg-slate-200 dark:bg-dark-800 dark:text-dark-100 dark:hover:bg-dark-700"
+              className="rounded-lg bg-slate-100 p-1.5 text-slate-700 transition-colors hover:bg-slate-200 dark:bg-dark-800 dark:text-dark-100 dark:hover:bg-dark-700"
               aria-label="CLI mode"
               title="Open CLI"
             >
-              <Terminal size={20} />
+              <Terminal size={18} />
             </Link>
             <ThemeToggle isDark={isDark} setIsDark={setIsDark} />
 
@@ -83,10 +156,10 @@ const Navbar = ({ isDark, setIsDark }) => {
             {isHomePage && (
               <button
                 onClick={() => setIsOpen(!isOpen)}
-                className="rounded-lg bg-slate-100 p-2 text-slate-700 hover:bg-slate-200 dark:bg-dark-800 dark:text-dark-100 dark:hover:bg-dark-700 md:hidden"
+                className="rounded-lg bg-slate-100 p-1.5 text-slate-700 hover:bg-slate-200 dark:bg-dark-800 dark:text-dark-100 dark:hover:bg-dark-700 md:hidden"
                 aria-label="Toggle menu"
               >
-                {isOpen ? <X size={20} /> : <Menu size={20} />}
+                {isOpen ? <X size={18} /> : <Menu size={18} />}
               </button>
             )}
           </div>

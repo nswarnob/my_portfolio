@@ -7,6 +7,7 @@ import GithubContributions from "../components/GithubContributions";
 import Contact from "../components/Contact";
 import MeteorBackground from "../components/MeteorBackground";
 import BlogSection from "../components/BlogSection";
+import LatestRepositorySection from "../components/LatestRepositorySection";
 
 const Home = () => {
   return (
@@ -18,6 +19,7 @@ const Home = () => {
     >
       <MeteorBackground />
       <Hero />
+      <LatestRepositorySection />
       <GithubContributions />
       <Experience />
       <Projects />

@@ -95,7 +95,7 @@ export const data = {
       liveUrl: "https://zep-shift-client.vercel.app/",
       repoUrl: "https://github.com/nswarnob/zep-shift-client.git",
     },
-        {
+    {
       title: "English Janala - English Learning Platform",
       dates: "2024",
       description:
@@ -106,8 +106,19 @@ export const data = {
       liveUrl: "https://nswarnob.github.io/English-Janala-a-dictionary-/",
       repoUrl: "https://github.com/nswarnob/english-janala.git",
     },
-    
   ],
+
+  latestRepository: {
+    name: "mrats-client",
+    description:
+      "A polished microloan workflow platform focused on making borrower applications, staff reviews, and internal approvals feel fast, intuitive, and dependable.",
+    highlight:
+      "Currently refining the admin experience and improving the overall product flow.",
+    techStack: ["React", "Node.js", "MongoDB", "Tailwind CSS"],
+    repoUrl: "https://github.com/nswarnob/mrats-client.git",
+    liveUrl: "https://mrats-client.vercel.app/",
+    updatedAt: "Updated recently",
+  },
 
   education: [
     {

@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 import { data } from "../data/portfolioData";
 
 const getBootMessages = () => [
@@ -9,6 +10,7 @@ const getBootMessages = () => [
 ];
 
 const CliPage = () => {
+  const navigate = useNavigate();
   const [input, setInput] = useState("");
   const [history, setHistory] = useState(getBootMessages());
 
@@ -24,6 +26,7 @@ const CliPage = () => {
           "  skills    - my core stack",
           "  projects  - featured work",
           "  contact   - email + socials",
+          "  back      - back to homepage",
           "  clear     - reset terminal",
         ];
       case "about":
@@ -47,10 +50,13 @@ const CliPage = () => {
           `Email: ${data.contact.email}`,
           ...data.socials.map((social) => `${social.name}: ${social.url}`),
         ];
+      case "back":
+        navigate("/");
+        return ["Taking you back..."];
       default:
         return [
           `Command not found: ${rawCommand}`,
-          "Try: help, about, skills, projects, contact, clear",
+          "Try: help, about, skills, projects, contact, back, clear",
         ];
     }
   };

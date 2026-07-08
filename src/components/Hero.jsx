@@ -14,6 +14,8 @@ const Hero = () => {
   const { name, dob, about, socials, skills, photo } = data;
 
   const [age, setAge] = useState(0);
+  const [greeting, setGreeting] = useState("");
+  const [greetingIcon, setGreetingIcon] = useState("☀️");
 
   useEffect(() => {
     let animationFrameId;
@@ -31,6 +33,30 @@ const Hero = () => {
 
     return () => cancelAnimationFrame(animationFrameId);
   }, [dob]);
+
+  useEffect(() => {
+    const updateGreeting = () => {
+      const hour = new Date().getHours();
+      if (hour >= 22 || hour < 5) {
+        setGreeting("Good Night");
+        setGreetingIcon("🌙");
+      } else if (hour < 12) {
+        setGreeting("Good Morning");
+        setGreetingIcon("🌅");
+      } else if (hour < 18) {
+        setGreeting("Good Afternoon");
+        setGreetingIcon("☀️");
+      } else {
+        setGreeting("Good Evening");
+        setGreetingIcon("🌇");
+      }
+    };
+
+    updateGreeting();
+    const intervalId = window.setInterval(updateGreeting, 60000);
+
+    return () => window.clearInterval(intervalId);
+  }, []);
 
   const socialIcons = {
     FiGithub: Github,
@@ -117,14 +143,28 @@ const Hero = () => {
                 viewport={{ once: true }}
                 className="absolute right-0 top-0 flex flex-col items-center gap-1 sm:gap-1.5 md:gap-2 shrink-0 w-max max-w-[72px] sm:max-w-[140px] md:max-w-none self-start lg:static lg:top-auto lg:right-auto"
               >
-                <div className="h-[clamp(56px,16vw,72px)] w-[clamp(56px,16vw,72px)] sm:h-[clamp(80px,24vw,140px)] sm:w-[clamp(72px,22vw,120px)] md:h-36 md:w-36">
-                  <div className="avatar-border">
-                    <div className="h-full w-full overflow-hidden rounded-full bg-dark-950">
-                      <img
-                        src={photo}
-                        alt={name}
-                        className="h-full w-full rounded-full object-cover"
-                      />
+                <div className="relative">
+                  <Motion.div
+                    initial={{ opacity: 0, y: 8, scale: 0.98 }}
+                    animate={{ opacity: 1, y: [0, -3, 0], scale: 1 }}
+                    transition={{ duration: 1.1, ease: "easeOut" }}
+                    className="absolute left-1/2 top-[-1.2rem] z-20 -translate-x-1/2 sm:top-[-1.4rem]"
+                  >
+                    <div className="absolute bottom-[-0.35rem] left-1/2 h-3 w-3 -translate-x-1/2 rotate-45 rounded-[2px] bg-gradient-to-br from-sky-500 to-blue-600" />
+                    <div className="rounded-2xl border border-white/20 bg-gradient-to-br from-sky-500 via-blue-500 to-cyan-500 px-2 py-1.5 text-[10px] font-semibold text-white shadow-[0_10px_24px_rgba(59,130,246,0.24)] sm:px-2.5 sm:py-2 sm:text-xs whitespace-nowrap">
+                      {greeting || "Hello"}
+                    </div>
+                  </Motion.div>
+
+                  <div className="h-[clamp(56px,16vw,72px)] w-[clamp(56px,16vw,72px)] sm:h-[clamp(80px,24vw,140px)] sm:w-[clamp(72px,22vw,120px)] md:h-36 md:w-36">
+                    <div className="avatar-border">
+                      <div className="h-full w-full overflow-hidden rounded-full bg-dark-950">
+                        <img
+                          src={photo}
+                          alt={name}
+                          className="h-full w-full rounded-full object-cover"
+                        />
+                      </div>
                     </div>
                   </div>
                 </div>
@@ -134,7 +174,7 @@ const Hero = () => {
                   download="Sharif_Uddin_Arnob_Resume.pdf"
                   whileHover={{ scale: 1.05, y: -2 }}
                   whileTap={{ scale: 0.95 }}
-                  className="inline-flex items-center justify-center gap-1.5 sm:gap-2 rounded-full px-2.5 py-1.5 text-[10px] sm:px-3 sm:py-2 sm:text-xs md:px-4 md:py-2 md:text-sm font-medium text-dark-100 backdrop-blur-sm transition-all duration-300 cursor-pointer border border-transparent resume-button-border"
+                  className="inline-flex items-center justify-center gap-1.5 sm:gap-2 rounded-full px-2.5 py-1.5 text-[10px] sm:px-3 sm:py-2 sm:text-xs md:px-4 md:py-2 md:text-sm font-medium text-dark-100 backdrop-blur-sm transition-all duration-300 cursor-pointer border border-transparent resume-button-border light:text-slate-900"
                 >
                   <Download className="w-4 h-4 sm:w-4 sm:h-4 md:w-5 md:h-5" />
                   <span>Resume</span>
@@ -172,7 +212,7 @@ const Hero = () => {
                   rel="noopener noreferrer"
                   whileHover={{ scale: 1.12, y: -2 }}
                   whileTap={{ scale: 0.95 }}
-                  className="text-dark-300 transition-colors duration-300 hover:text-dark-100"
+                  className="text-dark-300 transition-colors duration-300 hover:text-dark-100 light:text-slate-600 light:hover:text-slate-900"
                 >
                   {Icon && <Icon size={24} />}
                 </Motion.a>

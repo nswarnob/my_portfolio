@@ -6,4 +6,9 @@ export default defineConfig({
   // ensure Vercel (or any CI) resolves index.html from project root
   root: ".",
   plugins: [react()],
+  server: {
+    proxy: {
+      "/api": "http://localhost:3001",
+    },
+  },
 });
