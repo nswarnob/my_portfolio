@@ -15,7 +15,6 @@ const Hero = () => {
 
   const [age, setAge] = useState(0);
   const [greeting, setGreeting] = useState("");
-  const [greetingIcon, setGreetingIcon] = useState("☀️");
 
   useEffect(() => {
     let animationFrameId;
@@ -39,16 +38,14 @@ const Hero = () => {
       const hour = new Date().getHours();
       if (hour >= 22 || hour < 5) {
         setGreeting("Good Night");
-        setGreetingIcon("🌙");
       } else if (hour < 12) {
         setGreeting("Good Morning");
-        setGreetingIcon("🌅");
       } else if (hour < 18) {
         setGreeting("Good Afternoon");
-        setGreetingIcon("☀️");
+        
       } else {
         setGreeting("Good Evening");
-        setGreetingIcon("🌇");
+       
       }
     };
 
