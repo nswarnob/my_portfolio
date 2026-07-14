@@ -7,6 +7,7 @@ import {
   Youtube,
   Instagram,
   Download,
+  Search,
 } from "lucide-react";
 import { data } from "../data/portfolioData";
 
@@ -109,10 +110,26 @@ const Hero = () => {
                 been on earth for {age.toFixed(9)} years
               </Motion.p>
 
-              <Motion.div variants={item} className="mt-4 sm:mt-5 md:mt-6">
+              <Motion.div
+                variants={item}
+                className="mt-4 flex flex-wrap items-center gap-2 sm:mt-5 md:mt-6"
+              >
                 <h4 className="text-lg sm:text-xl md:text-2xl font-medium">
                   About me
                 </h4>
+                <Motion.a
+                  href="https://www.google.com/search?q=Who+is+Sharif+Uddin+Arnob&udm=50"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  title="See what the internet says about me."
+                  whileTap={{ scale: 0.95 }}
+                  className="group inline-flex items-center gap-1.5 rounded-full border border-transparent px-2.5 py-1 text-[10px] font-medium text-dark-100 backdrop-blur-sm transition-all duration-300 light:text-slate-900 sm:px-3 sm:py-1.5 sm:text-xs md:px-4 md:py-2 md:text-sm"
+                >
+                  <span className="inline-flex h-5 w-5 items-center justify-center rounded-full border border-transparent resume-button-border transition-all duration-300 sm:h-6 sm:w-6">
+                    <Search className="h-3.5 w-3.5 sm:h-4 sm:w-4" />
+                  </span>
+                  <span>Google Me</span>
+                </Motion.a>
               </Motion.div>
 
               {/* Desktop about text */}
@@ -143,9 +160,9 @@ const Hero = () => {
                     initial={{ opacity: 0, y: 8, scale: 0.98 }}
                     animate={{ opacity: 1, y: [0, -3, 0], scale: 1 }}
                     transition={{ duration: 1.1, ease: "easeOut" }}
-                    className="absolute left-1/2 top-[-1.2rem] z-20 -translate-x-1/2 sm:top-[-1.4rem]"
+                    className="absolute sm:left-1/2 left-[-0.2rem] top-[-2rem] z-20 -translate-x-1/2 sm:top-[-1.4rem]"
                   >
-                    <div className="absolute bottom-[-0.35rem] left-1/2 h-3 w-3 -translate-x-1/2 rotate-45 rounded-[2px] bg-gradient-to-br from-sky-500 to-blue-600" />
+                    <div className="absolute bottom-[-0.30rem] right-1/2 h-3 w-3 -translate-x-1/2 rotate-45 rounded-[2px] bg-gradient-to-br from-sky-500 to-blue-600" />
                     <div className="rounded-2xl border border-white/20 bg-gradient-to-br from-sky-500 via-blue-500 to-cyan-500 px-2 py-1.5 text-[10px] font-semibold text-white shadow-[0_10px_24px_rgba(59,130,246,0.24)] sm:px-2.5 sm:py-2 sm:text-xs whitespace-nowrap">
                       {greeting || "Hello"}
                     </div>
@@ -164,16 +181,18 @@ const Hero = () => {
                   </div>
                 </div>
 
-                <Motion.a
-                  href="/resume.pdf"
-                  download="Sharif_Uddin_Arnob_Resume.pdf"
-                  whileHover={{ scale: 1.05, y: -2 }}
-                  whileTap={{ scale: 0.95 }}
-                  className="inline-flex items-center justify-center gap-1.5 sm:gap-2 rounded-full px-2.5 py-1.5 text-[10px] sm:px-3 sm:py-2 sm:text-xs md:px-4 md:py-2 md:text-sm font-medium text-dark-100 backdrop-blur-sm transition-all duration-300 cursor-pointer border border-transparent resume-button-border light:text-slate-900"
-                >
-                  <Download className="w-4 h-4 sm:w-4 sm:h-4 md:w-5 md:h-5" />
-                  <span>Resume</span>
-                </Motion.a>
+                <div className="flex w-full flex-col items-stretch gap-2 sm:w-auto sm:flex-row sm:items-center">
+                  <Motion.a
+                    href="/resume.pdf"
+                    download="Sharif_Uddin_Arnob_Resume.pdf"
+                    whileHover={{ scale: 1.05, y: -2 }}
+                    whileTap={{ scale: 0.95 }}
+                    className="inline-flex w-full items-center justify-center gap-1.5 rounded-full px-2.5 py-1.5 text-[10px] sm:w-auto sm:gap-2 sm:px-3 sm:py-2 sm:text-xs md:px-4 md:py-2 md:text-sm font-medium text-dark-100 backdrop-blur-sm transition-all duration-300 cursor-pointer border border-transparent resume-button-border light:text-slate-900"
+                  >
+                    <Download className="w-4 h-4 sm:w-4 sm:h-4 md:w-5 md:h-5" />
+                    <span>Resume</span>
+                  </Motion.a>
+                </div>
               </Motion.div>
             )}
           </div>
