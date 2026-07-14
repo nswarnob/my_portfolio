@@ -42,10 +42,8 @@ const Hero = () => {
         setGreeting("Good Morning");
       } else if (hour < 18) {
         setGreeting("Good Afternoon");
-        
       } else {
         setGreeting("Good Evening");
-       
       }
     };
 
@@ -145,7 +143,7 @@ const Hero = () => {
                     initial={{ opacity: 0, y: 8, scale: 0.98 }}
                     animate={{ opacity: 1, y: [0, -3, 0], scale: 1 }}
                     transition={{ duration: 1.1, ease: "easeOut" }}
-                    className="absolute right-[-0.45rem] top-[-0.3rem] z-20 max-[767px]:left-[-0.35rem] max-[767px]:right-auto max-[767px]:top-[-0.3rem]"
+                    className="absolute left-1/2 top-[-1.2rem] z-20 -translate-x-1/2 sm:top-[-1.4rem]"
                   >
                     <div className="absolute bottom-[-0.35rem] left-1/2 h-3 w-3 -translate-x-1/2 rotate-45 rounded-[2px] bg-gradient-to-br from-sky-500 to-blue-600" />
                     <div className="rounded-2xl border border-white/20 bg-gradient-to-br from-sky-500 via-blue-500 to-cyan-500 px-2 py-1.5 text-[10px] font-semibold text-white shadow-[0_10px_24px_rgba(59,130,246,0.24)] sm:px-2.5 sm:py-2 sm:text-xs whitespace-nowrap">
