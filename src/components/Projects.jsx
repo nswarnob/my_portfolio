@@ -24,8 +24,8 @@ const Projects = () => {
           Featured Projects
         </motion.h2>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-8">
-          {projects.slice(0, 2).map((proj, idx) => (
+        <div className="grid grid-cols-1 gap-6 md:grid-cols-2 xl:grid-cols-3 mb-8">
+          {projects.slice(0, 3).map((proj, idx) => (
             <ProjectCard key={idx} project={proj} index={idx} />
           ))}
         </div>
