@@ -67,7 +67,7 @@ export const data = {
       dates: "2026",
       description:
         "LoanLink is a full-stack web application designed to streamline the process of microloan requests, review, approval, and management for small financial organizations, NGOs, and microloan providers. It features a user-friendly interface for borrowers to submit loan applications, and an admin dashboard for staff to review and manage these applications efficiently.",
-      image: "/public/images/LoanLink.png",
+      image: "/images/LoanLink.png",
       technologies: ["React", "Node.js", "MongoDB", "Tailwind CSS"],
       liveUrl: "https://mrats-client.vercel.app/",
       repoUrl: "https://github.com/nswarnob/mrats-client.git",
@@ -77,7 +77,7 @@ export const data = {
       dates: "2025",
       description:
         "A modern, full-featured parcel delivery and logistics management platform built with React and Vite. Zep Shift provides seamless parcel tracking, booking, and delivery management across Bangladesh.",
-      image: "/public/images/Zefshift.png",
+      image: "/images/Zefshift.png",
       technologies: ["React", "Tailwind CSS", "Framer Motion"],
       liveUrl: "https://zep-shift-client.vercel.app/",
       repoUrl: "https://github.com/nswarnob/zep-shift-client.git",
@@ -87,7 +87,7 @@ export const data = {
       dates: "2025",
       description:
         " Warm Paws is a comprehensive pet care web application that provides pet owners with a platform to manage their pets' health, schedule appointments, and access resources for pet care. The application features a user-friendly interface for pet owners to create profiles for their pets, track their health records, and receive reminders for vaccinations and appointments. Additionally, it includes a directory of local veterinarians and pet care services.",
-      image: "/public/images/WarmPaws.png",
+      image: "/images/WarmPaws.png",
       technologies: ["React", "Vite", "Tailwind CSS", "Framer Motion"],
       liveUrl: "https://nswarnob.github.io/pet-care-in-winter/",
       repoUrl: "https://github.com/nswarnob/pet-care-in-winter.git",
@@ -97,7 +97,7 @@ export const data = {
       dates: "2024",
       description:
         "English Janala is a comprehensive English learning platform designed to help learners of all levels improve their language skills. The platform offers a variety of interactive lessons, exercises, and resources to enhance vocabulary, grammar, listening, speaking, reading, and writing abilities.",
-      image: "/public/images/Englishjanala.png",
+      image: "/images/Englishjanala.png",
       technologies: ["React", "Tailwind CSS", "Framer Motion"],
       liveUrl: "https://nswarnob.github.io/English-Janala-a-dictionary-/",
       repoUrl: "https://github.com/nswarnob/english-janala.git",
