@@ -2,9 +2,9 @@ import { ExternalLink, Github } from "lucide-react";
 
 const ProjectCard = ({ project }) => {
   return (
-    <article className="group relative flex h-full flex-col overflow-hidden rounded-2xl border border-slate-200 bg-white/95 transition-all duration-300 hover:-translate-y-1 hover:border-sky-500 hover:shadow-[0_0_25px_rgba(14,165,233,0.15)]">
+    <article className="group relative flex h-full flex-col overflow-hidden rounded-2xl border border-slate-200 bg-white/95 dark:border-white/10 dark:bg-dark-950 transition-all duration-300 hover:-translate-y-1 hover:border-sky-500 hover:shadow-[0_0_25px_rgba(14,165,233,0.15)]">
       {project.image && (
-        <div className="relative aspect-video w-full overflow-hidden bg-slate-100/80">
+        <div className="relative aspect-video w-full overflow-hidden bg-slate-100/80 dark:bg-dark-900/60">
           <img
             src={project.image}
             alt={project.title}
@@ -15,16 +15,16 @@ const ProjectCard = ({ project }) => {
 
       <div className="flex flex-1 flex-col p-6">
         <div className="mb-3">
-          <h3 className="text-lg font-semibold text-slate-900 transition-colors group-hover:text-blue-600">
+          <h3 className="text-lg font-semibold text-slate-900 dark:text-dark-100 transition-colors group-hover:text-blue-600 dark:group-hover:text-blue-400">
             {project.title}
           </h3>
           {project.dates && (
-            <p className="mt-1 text-sm text-slate-500">{project.dates}</p>
+            <p className="mt-1 text-sm text-slate-500 dark:text-dark-400">{project.dates}</p>
           )}
         </div>
 
         {project.description && (
-          <p className="mt-4 line-clamp-3 text-sm text-slate-600">
+          <p className="mt-4 line-clamp-3 text-sm text-slate-600 dark:text-dark-300">
             {project.description}
           </p>
         )}
@@ -34,7 +34,7 @@ const ProjectCard = ({ project }) => {
             {project.technologies.map((tech) => (
               <span
                 key={tech}
-                className="rounded-full bg-slate-100 px-2 py-1 text-xs text-slate-700 transition-colors hover:text-slate-900"
+                className="rounded-full bg-slate-100 px-2 py-1 text-xs text-slate-700 dark:bg-dark-800 dark:text-dark-300 dark:hover:text-dark-100 transition-colors hover:text-slate-900"
               >
                 {tech}
               </span>
@@ -48,7 +48,7 @@ const ProjectCard = ({ project }) => {
               href={project.liveUrl}
               target="_blank"
               rel="noopener noreferrer"
-              className="flex items-center gap-1 text-sm text-blue-600 transition-colors hover:text-blue-700"
+              className="flex items-center gap-1 text-sm text-blue-600 dark:text-blue-400 transition-colors hover:text-blue-700 dark:hover:text-blue-300"
             >
               <ExternalLink size={16} />
               Live Demo
@@ -59,7 +59,7 @@ const ProjectCard = ({ project }) => {
               href={project.repoUrl}
               target="_blank"
               rel="noopener noreferrer"
-              className="flex items-center gap-1 text-sm text-blue-600 transition-colors hover:text-blue-700"
+                className="flex items-center gap-1 text-sm text-blue-600 dark:text-blue-400 transition-colors hover:text-blue-700 dark:hover:text-blue-300"
             >
               <Github size={16} />
               Source Code
