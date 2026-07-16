@@ -19,7 +19,9 @@ const ProjectCard = ({ project }) => {
             {project.title}
           </h3>
           {project.dates && (
-            <p className="mt-1 text-sm text-slate-500 dark:text-dark-400">{project.dates}</p>
+            <p className="mt-1 text-sm text-slate-500 dark:text-dark-400">
+              {project.dates}
+            </p>
           )}
         </div>
 
@@ -59,7 +61,7 @@ const ProjectCard = ({ project }) => {
               href={project.repoUrl}
               target="_blank"
               rel="noopener noreferrer"
-                className="flex items-center gap-1 text-sm text-blue-600 dark:text-blue-400 transition-colors hover:text-blue-700 dark:hover:text-blue-300"
+              className="flex items-center gap-1 text-sm text-blue-600 dark:text-blue-400 transition-colors hover:text-blue-700 dark:hover:text-blue-300"
             >
               <Github size={16} />
               Source Code
