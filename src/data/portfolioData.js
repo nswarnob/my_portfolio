@@ -13,6 +13,7 @@ export const data = {
 
   socials: [
     { name: "GitHub", icon: "FiGithub", url: "https://github.com/nswarnob" },
+    { name: "LeetCode", icon: "FiCode", url: "https://leetcode.com/nswarnob" },
     {
       name: "LinkedIn",
       icon: "FiLinkedin",
