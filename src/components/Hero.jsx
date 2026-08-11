@@ -189,7 +189,7 @@ const Hero = () => {
                     download="Sharif_Uddin_Arnob_Resume.pdf"
                     whileHover={{ scale: 1.05, y: -2 }}
                     whileTap={{ scale: 0.95 }}
-                    className="inline-flex w-full items-center justify-center gap-1.5 rounded-full px-2.5 py-1.5 text-[10px] sm:w-auto sm:gap-2 sm:px-3 sm:py-2 sm:text-xs md:px-4 md:py-2 md:text-sm font-medium text-dark-100 backdrop-blur-sm transition-all duration-300 cursor-pointer border border-transparent resume-button-border light:text-slate-900"
+                    className="resume-button-border resume-glass inline-flex w-full cursor-pointer items-center justify-center gap-1.5 rounded-full border border-transparent px-2.5 py-1.5 text-[10px] font-medium text-dark-100 transition-all duration-300 light:text-slate-900 sm:w-auto sm:gap-2 sm:px-3 sm:py-2 sm:text-xs md:px-4 md:py-2 md:text-sm"
                   >
                     <Download className="w-4 h-4 sm:w-4 sm:h-4 md:w-5 md:h-5" />
                     <span>Resume</span>
