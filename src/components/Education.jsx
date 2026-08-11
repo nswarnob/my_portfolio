@@ -52,7 +52,7 @@ const Education = () => {
               whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true }}
               transition={{ delay: idx * 0.1 }}
-              className="flex items-center justify-between p-4 rounded-lg border border-white/10 hover:border-white/20 transition-colors"
+              className="glass-surface glass-card flex items-center justify-between p-4 rounded-lg transition-colors"
             >
               <div className="flex items-center gap-3">
                 <img

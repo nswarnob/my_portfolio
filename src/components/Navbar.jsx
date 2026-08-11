@@ -97,8 +97,8 @@ const Navbar = ({ isDark, setIsDark }) => {
     <nav
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
         isScrolled
-          ? "border-b border-slate-200/80 bg-white/90 shadow-sm backdrop-blur-md dark:border-dark-800/50 dark:bg-dark-950/95 dark:shadow-lg"
-          : "bg-transparent"
+          ? "glass-nav glass-nav-scrolled"
+          : "glass-nav"
       }`}
     >
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -130,11 +130,11 @@ const Navbar = ({ isDark, setIsDark }) => {
           <div className="flex items-center gap-1.5 sm:gap-2 ml-auto">
             <div className="hidden md:flex items-center gap-2">
               <div className="flex items-center gap-1.5 border-b border-slate-300 px-2.5 py-1.5 text-[11px] text-slate-700 shadow-sm backdrop-blur-md dark:border-white/10 dark:text-dark-200">
-                <Clock3 size={12} className="text-cyan-400" />
+                <Clock3 size={12} className="text-[#737373] dark:text-[#d4d4d4]" />
                 <span>{currentTime || "--:--"}</span>
               </div>
               <div className="flex items-center gap-1.5 border-b border-slate-300 px-2.5 py-1.5 text-[11px] text-slate-700 shadow-sm backdrop-blur-md dark:border-white/10 dark:text-dark-200">
-                <CloudSun size={12} className="text-sky-400" />
+                <CloudSun size={12} className="text-[#737373] dark:text-[#d4d4d4]" />
                 <span>
                   {currentWeather?.temperature != null
                     ? `${Math.round(currentWeather.temperature)}°C`
@@ -172,7 +172,7 @@ const Navbar = ({ isDark, setIsDark }) => {
               initial={{ opacity: 0, height: 0 }}
               animate={{ opacity: 1, height: "auto" }}
               exit={{ opacity: 0, height: 0 }}
-              className="border-t border-slate-200 bg-white/90 backdrop-blur-md dark:border-dark-800/50 dark:bg-dark-900/50 md:hidden"
+              className="glass-menu border-t md:hidden"
             >
               <div className="px-4 py-4 space-y-3">
                 {navLinks.map((link) => (
@@ -182,7 +182,7 @@ const Navbar = ({ isDark, setIsDark }) => {
                     onClick={() => handleNavClick(link.name.toLowerCase())}
                     className={`block px-4 py-2 rounded-lg transition-colors ${
                       activeSection === link.name.toLowerCase()
-                        ? "bg-blue-50 text-blue-700 dark:bg-blue-500/20 dark:text-blue-400"
+                        ? "bg-[#d4d4d4]/40 text-[#111111] dark:bg-white/10 dark:text-white"
                         : "text-slate-700 hover:bg-slate-100 hover:text-slate-900 dark:text-dark-300 dark:hover:bg-dark-800 dark:hover:text-dark-100"
                     }`}
                   >

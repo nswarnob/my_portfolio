@@ -7,21 +7,25 @@ import ThemeProvider from "./components/ThemeProvider";
 import Home from "./pages/Home";
 import ProjectsPage from "./pages/ProjectsPage";
 import CliPage from "./pages/CliPage";
+import MonochromeBackground from "./components/MonochromeBackground";
 
 function App() {
   return (
     <ThemeProvider>
       {({ isDark, setIsDark }) => (
         <BrowserRouter>
-          <div className="min-h-screen bg-slate-50 text-slate-900 transition-colors duration-300 dark:bg-[#09090b] dark:text-white">
+          <div className="relative isolate min-h-screen overflow-x-hidden bg-transparent text-slate-900 transition-colors duration-300 dark:text-white">
+            <MonochromeBackground />
             <ScrollProgress />
             <Navbar isDark={isDark} setIsDark={setIsDark} />
-            <Routes>
-              <Route path="/" element={<Home />} />
-              <Route path="/projects" element={<ProjectsPage />} />
-              <Route path="/cli" element={<CliPage />} />
-            </Routes>
-            <Footer />
+            <div className="relative z-10">
+              <Routes>
+                <Route path="/" element={<Home />} />
+                <Route path="/projects" element={<ProjectsPage />} />
+                <Route path="/cli" element={<CliPage />} />
+              </Routes>
+              <Footer />
+            </div>
           </div>
         </BrowserRouter>
       )}

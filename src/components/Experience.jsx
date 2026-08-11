@@ -34,7 +34,7 @@ const Experience = () => {
               whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true }}
               transition={{ delay: idx * 0.1 }}
-              className="flex items-start gap-4 p-4 rounded-lg border border-white/10 hover:border-white/20 transition-colors group"
+              className="glass-surface glass-card flex items-start gap-4 p-4 rounded-lg transition-colors group"
             >
               <img
                 src={exp.logo}
@@ -44,7 +44,7 @@ const Experience = () => {
               <div className="flex-grow">
                 <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-2">
                   <div>
-                    <h3 className="font-semibold text-dark-100 group-hover:text-blue-400 transition-colors">
+                    <h3 className="font-semibold text-dark-100 group-hover:text-white light:group-hover:text-black transition-colors">
                       {exp.company}
                     </h3>
                     <p className="text-sm text-dark-400">

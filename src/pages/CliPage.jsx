@@ -91,25 +91,25 @@ const CliPage = () => {
   return (
     <section className="min-h-screen px-4 pb-20 pt-24 sm:px-6 lg:px-8">
       <div className="mx-auto max-w-5xl">
-        <div className="overflow-hidden rounded-3xl border border-slate-200 bg-white shadow-sm dark:border-white/10 dark:bg-dark-950 dark:shadow-xl">
+        <div className="glass-surface overflow-hidden rounded-3xl">
           <div className="flex items-center gap-2 border-b border-slate-200 bg-slate-50 px-4 py-3 dark:border-white/10 dark:bg-dark-900">
-            <span className="h-3 w-3 rounded-full bg-red-400" />
-            <span className="h-3 w-3 rounded-full bg-yellow-400" />
-            <span className="h-3 w-3 rounded-full bg-green-400" />
+            <span className="h-3 w-3 rounded-full bg-[#737373]" />
+            <span className="h-3 w-3 rounded-full bg-[#a3a3a3]" />
+            <span className="h-3 w-3 rounded-full bg-[#d4d4d4]" />
             <span className="ml-3 font-mono text-xs text-slate-500 dark:text-dark-300">
               portfolio-cli
             </span>
           </div>
 
-          <div className="min-h-[520px] space-y-2 p-4 font-mono text-sm text-slate-700 dark:text-blue-100">
+          <div className="min-h-[520px] space-y-2 p-4 font-mono text-sm text-[#404040] dark:text-[#d4d4d4]">
             {history.map((line, index) => (
               <p
                 key={`${line}-${index}`}
                 className={`whitespace-pre-wrap ${
                   line.startsWith("visitor@portfolio")
-                    ? "text-blue-600 dark:text-cyan-300"
+                    ? "text-[#111111] dark:text-white"
                     : line.startsWith("Command not found")
-                      ? "text-red-500 dark:text-red-300"
+                      ? "text-[#737373] dark:text-[#d4d4d4]"
                       : "text-slate-700 dark:text-dark-200"
                 }`}
               >
@@ -121,7 +121,7 @@ const CliPage = () => {
               onSubmit={handleSubmit}
               className="flex items-center gap-2 pt-2"
             >
-              <span className="text-blue-600 dark:text-cyan-300">
+              <span className="text-[#111111] dark:text-white">
                 visitor@portfolio:~$
               </span>
               <input

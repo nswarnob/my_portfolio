@@ -1,4 +1,4 @@
-import { motion } from "framer-motion";
+import { motion as Motion } from "framer-motion";
 import { Mail } from "lucide-react";
 import { data } from "../data/portfolioData";
 import AnimatedBorderCard from "./AnimatedBorderCard";
@@ -11,7 +11,7 @@ const Contact = () => {
       icon: Mail,
       label: "Email",
       href: `mailto:${contact.email}`,
-      color: "hover:text-red-400",
+      color: "hover:text-white light:hover:text-black",
     },
   ];
 
@@ -21,26 +21,26 @@ const Contact = () => {
       className="py-8 sm:py-12 lg:py-16 px-4 sm:px-6 lg:px-8"
     >
       <div className="max-w-6xl mx-auto">
-        <AnimatedBorderCard padding="p-12">
-          <motion.h2
+        <AnimatedBorderCard padding="p-12" animatedBorder={false}>
+          <Motion.h2
             initial={{ opacity: 0 }}
             whileInView={{ opacity: 1 }}
             viewport={{ once: true }}
             className="text-2xl sm:text-3xl font-bold mb-4 text-center"
           >
             Let's Work Together
-          </motion.h2>
+          </Motion.h2>
 
-          <motion.p
+          <Motion.p
             initial={{ opacity: 0 }}
             whileInView={{ opacity: 1 }}
             viewport={{ once: true }}
             className="text-dark-300 mb-8 max-w-2xl mx-auto text-center"
           >
             {contact.message}
-          </motion.p>
+          </Motion.p>
 
-          <motion.div
+          <Motion.div
             initial={{ opacity: 0 }}
             whileInView={{ opacity: 1 }}
             viewport={{ once: true }}
@@ -49,7 +49,7 @@ const Contact = () => {
             {contactLinks.map((link, idx) => {
               const Icon = link.icon;
               return (
-                <motion.a
+                <Motion.a
                   key={idx}
                   href={link.href}
                   target={link.label !== "Email" ? "_blank" : undefined}
@@ -62,10 +62,10 @@ const Contact = () => {
                 >
                   <Icon size={18} />
                   {link.label}
-                </motion.a>
+                </Motion.a>
               );
             })}
-          </motion.div>
+          </Motion.div>
         </AnimatedBorderCard>
       </div>
     </section>

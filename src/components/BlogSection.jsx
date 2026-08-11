@@ -6,7 +6,6 @@ import { ArrowUpRight } from "lucide-react";
 import { blogs } from "../data/blog";
 
 import "swiper/css";
-import AnimatedBorderCard from "./AnimatedBorderCard";
 
 const containerVariants = {
   hidden: { opacity: 0, y: 24 },
@@ -80,7 +79,7 @@ export default function BlogSection() {
             >
               {blogs.map((blog) => (
                 <SwiperSlide key={blog.id}>
-                  <article className="group h-full overflow-hidden rounded-2xl border border-white/10 bg-dark-800 backdrop-blur-sm transition duration-300 hover:-translate-y-1 hover:border-white/20">
+                  <article className="glass-surface glass-card group h-full overflow-hidden rounded-2xl transition duration-300">
                     {blog.coverImage && (
                       <img
                         src={blog.coverImage}
@@ -101,7 +100,7 @@ export default function BlogSection() {
                         </span>
                       </div>
 
-                      <h3 className="text-lg font-semibold text-dark-100 group-hover:text-blue-400 transition">
+                      <h3 className="text-lg font-semibold text-dark-100 group-hover:text-white light:group-hover:text-black transition">
                         {blog.title}
                       </h3>
 
@@ -124,7 +123,7 @@ export default function BlogSection() {
                         href={blog.url}
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="inline-flex items-center gap-2 text-sm text-blue-400 hover:text-blue-300 transition-colors"
+                        className="inline-flex items-center gap-2 text-sm text-[#d4d4d4] light:text-[#404040] hover:text-white light:hover:text-black transition-colors"
                       >
                         Read Article
                         <ArrowUpRight size={16} />

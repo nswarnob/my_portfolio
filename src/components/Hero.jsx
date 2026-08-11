@@ -84,7 +84,7 @@ const Hero = () => {
   return (
     <section
       id="home"
-      className="relative pt-12 sm:pt-16 lg:pt-24 pb-2 px-4 sm:px-6 lg:px-8"
+      className="relative isolate px-4 pb-2 pt-12 sm:px-6 sm:pt-16 lg:px-8 lg:pt-24"
     >
       <div className="relative z-10 px-4 sm:px-6 my-8">
         <Motion.div
@@ -117,6 +117,10 @@ const Hero = () => {
                 <h4 className="text-lg sm:text-xl md:text-2xl font-medium">
                   About me
                 </h4>
+                <span
+                  aria-hidden="true"
+                  className="mx-1 h-4 w-px rounded-full bg-[#737373]/50 dark:bg-white/25 sm:h-5"
+                />
                 <Motion.a
                   href="https://www.google.com/search?q=Who+is+Sharif+Uddin+Arnob&udm=50"
                   target="_blank"
@@ -162,8 +166,8 @@ const Hero = () => {
                     transition={{ duration: 1.1, ease: "easeOut" }}
                     className="absolute sm:left-1/2 left-[-0.2rem] top-[-2rem] z-20 -translate-x-1/2 sm:top-[-1.4rem]"
                   >
-                    <div className="absolute bottom-[-0.30rem] right-1/2 h-3 w-3 -translate-x-1/2 rotate-45 rounded-[2px] bg-gradient-to-br from-sky-500 to-blue-600" />
-                    <div className="rounded-2xl border border-white/20 bg-gradient-to-br from-sky-500 via-blue-500 to-cyan-500 px-2 py-1.5 text-[10px] font-semibold text-white shadow-[0_10px_24px_rgba(59,130,246,0.24)] sm:px-2.5 sm:py-2 sm:text-xs whitespace-nowrap">
+                    <div className="absolute bottom-[-0.30rem] right-1/2 h-3 w-3 -translate-x-1/2 rotate-45 rounded-[2px] bg-[#111111] dark:bg-[#d4d4d4]" />
+                    <div className="rounded-2xl border border-[#737373]/30 bg-[#111111]/80 px-2 py-1.5 text-[10px] font-semibold text-white shadow-[0_10px_24px_rgba(0,0,0,0.24)] backdrop-blur-md dark:bg-[#111111]/75 sm:px-2.5 sm:py-2 sm:text-xs whitespace-nowrap">
                       {greeting || "Hello"}
                     </div>
                   </Motion.div>
@@ -243,7 +247,7 @@ const Hero = () => {
               {skills.map((skill, i) => (
                 <span
                   key={i}
-                  className="px-2 sm:px-3 py-0.5 sm:py-1 bg-dark-800 rounded-full text-[10px] sm:text-xs md:text-sm text-dark-200"
+                  className="glass-chip px-2 sm:px-3 py-0.5 sm:py-1 rounded-full text-[10px] sm:text-xs md:text-sm text-dark-200"
                 >
                   {skill}
                 </span>

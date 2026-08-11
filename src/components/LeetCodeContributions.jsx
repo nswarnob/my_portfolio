@@ -6,10 +6,10 @@ const DAY_IN_MS = 24 * 60 * 60 * 1000;
 const WEEKS_TO_SHOW = 53;
 
 const COLOR_LEVELS = [
-  "bg-slate-200 dark:bg-[#1f1f1f]",
-  "bg-[#ffe0a3] dark:bg-[#5c3b00]",
-  "bg-[#ffc45c] dark:bg-[#8a5900]",
-  "bg-[#ffa116] dark:bg-[#c77d00]",
+  "bg-[#f3f4f6] dark:bg-[#282828]",
+  "bg-[#ffe2a8] dark:bg-[#5c4518]",
+  "bg-[#ffc65c] dark:bg-[#8a6118]",
+  "bg-[#f5a623] dark:bg-[#c17d0b]",
   "bg-[#d97706] dark:bg-[#ffa116]",
 ];
 
@@ -104,13 +104,13 @@ const LeetCodeContributions = ({ username }) => {
 
   if (error) {
     return (
-      <div className="rounded-xl border border-amber-500/20 bg-amber-500/5 p-4">
+      <div className="rounded-xl border border-[#737373]/20 bg-[#737373]/5 p-4">
         <p className="text-sm text-dark-300">{error}</p>
         <a
           href={`https://leetcode.com/u/${username}/`}
           target="_blank"
           rel="noopener noreferrer"
-          className="mt-3 inline-flex items-center gap-2 text-sm font-medium text-[#ffa116] transition-colors hover:text-[#ffb84d]"
+          className="mt-3 inline-flex items-center gap-2 text-sm font-medium text-[#737373] transition-colors hover:text-black dark:text-[#d4d4d4] dark:hover:text-white"
         >
           View LeetCode profile
           <ExternalLink size={14} />
@@ -186,7 +186,7 @@ const LeetCodeContributions = ({ username }) => {
         href={`https://leetcode.com/u/${username}/`}
         target="_blank"
         rel="noopener noreferrer"
-        className="inline-flex items-center gap-2 text-sm font-medium text-[#ffa116] transition-colors hover:text-[#ffb84d]"
+        className="inline-flex items-center gap-2 text-sm font-medium text-[#737373] transition-colors hover:text-black dark:text-[#d4d4d4] dark:hover:text-white"
       >
         @{activity.username}
         <ExternalLink size={14} />

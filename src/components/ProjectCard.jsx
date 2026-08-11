@@ -2,7 +2,7 @@ import { ExternalLink, Github } from "lucide-react";
 
 const ProjectCard = ({ project }) => {
   return (
-    <article className="group relative flex h-full flex-col overflow-hidden rounded-2xl border border-slate-200 bg-white/95 dark:border-white/10 dark:bg-dark-950 transition-all duration-300 hover:-translate-y-1 hover:border-sky-500 hover:shadow-[0_0_25px_rgba(14,165,233,0.15)]">
+    <article className="glass-surface glass-card group relative flex h-full flex-col overflow-hidden rounded-2xl transition-all duration-300">
       {project.image && (
         <div className="relative aspect-video w-full overflow-hidden bg-slate-100/80 dark:bg-dark-900/60">
           <img
@@ -15,7 +15,7 @@ const ProjectCard = ({ project }) => {
 
       <div className="flex flex-1 flex-col p-6">
         <div className="mb-3">
-          <h3 className="text-lg font-semibold text-slate-900 dark:text-dark-100 transition-colors group-hover:text-blue-600 dark:group-hover:text-blue-400">
+          <h3 className="text-lg font-semibold text-slate-900 dark:text-dark-100 transition-colors group-hover:text-black dark:group-hover:text-white">
             {project.title}
           </h3>
           {project.dates && (
@@ -50,7 +50,7 @@ const ProjectCard = ({ project }) => {
               href={project.liveUrl}
               target="_blank"
               rel="noopener noreferrer"
-              className="flex items-center gap-1 text-sm text-blue-600 dark:text-blue-400 transition-colors hover:text-blue-700 dark:hover:text-blue-300"
+              className="flex items-center gap-1 text-sm text-[#404040] dark:text-[#d4d4d4] transition-colors hover:text-black dark:hover:text-white"
             >
               <ExternalLink size={16} />
               Live Demo
@@ -61,7 +61,7 @@ const ProjectCard = ({ project }) => {
               href={project.repoUrl}
               target="_blank"
               rel="noopener noreferrer"
-              className="flex items-center gap-1 text-sm text-blue-600 dark:text-blue-400 transition-colors hover:text-blue-700 dark:hover:text-blue-300"
+              className="flex items-center gap-1 text-sm text-[#404040] dark:text-[#d4d4d4] transition-colors hover:text-black dark:hover:text-white"
             >
               <Github size={16} />
               Source Code

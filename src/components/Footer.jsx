@@ -45,14 +45,19 @@ const Footer = () => {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6, ease: "easeOut" }}
-            className="flex flex-col items-center gap-2 rounded-2xl border border-white/10 bg-white/10 px-3 py-2.5 text-center shadow-[0_8px_24px_rgba(15,23,42,0.1)] backdrop-blur-xl"
+            className="glass-surface flex flex-col items-center gap-2 rounded-2xl px-3 py-2.5 text-center"
           >
             <span className="text-[10px] font-medium text-dark-300">
-              Currently he is here
+              Currently I'm here
             </span>
             <span className="flex items-center justify-center gap-2 text-[12px] text-dark-200">
-              <MapPin size={12} className="text-blue-400 shrink-0" />
-              <span>{currentLocation?.displayText || "Dhaka, Bangladesh"}</span>
+              <MapPin
+                size={12}
+                className="shrink-0 text-[#737373] dark:text-[#d4d4d4]"
+              />
+              <span>
+                {currentLocation?.displayText || "Habiganj, Sylhet, Bangladesh"}
+              </span>
             </span>
           </motion.div>
 
@@ -74,7 +79,7 @@ const Footer = () => {
               </p>
             </div>
 
-            <div className="flex gap-6 text-xs">
+            <div className="flex gap-6 text-xs display-none">
               <a
                 href="#"
                 className="text-dark-400 hover:text-dark-100 transition-colors"

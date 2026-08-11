@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import { motion } from "framer-motion";
+import { motion as Motion } from "framer-motion";
 import {
   ArrowUpRight,
   CalendarDays,
@@ -36,7 +36,7 @@ const LatestRepositorySection = () => {
     return (
       <section className="px-4 py-6 sm:px-6 sm:py-8 lg:px-8 lg:py-10">
         <div className="mx-auto max-w-6xl">
-          <motion.div
+          <Motion.div
             initial={{ opacity: 0, y: 12 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, amount: 0.2 }}
@@ -51,12 +51,12 @@ const LatestRepositorySection = () => {
             <p className="text-sm text-dark-400">
               A quick look at my latest project and current focus.
             </p>
-          </motion.div>
+          </Motion.div>
 
-          <AnimatedBorderCard className="group overflow-hidden">
+          <AnimatedBorderCard className="group overflow-hidden" animatedBorder={false}>
             <div className="flex items-center justify-center py-12">
               <div className="flex flex-col items-center gap-3">
-                <Loader size={24} className="animate-spin text-blue-400" />
+                <Loader size={24} className="animate-spin text-[#d4d4d4] light:text-[#404040]" />
                 <p className="text-sm text-dark-300">
                   Loading latest project...
                 </p>
@@ -83,7 +83,7 @@ const LatestRepositorySection = () => {
   return (
     <section className="px-4 py-6 sm:px-6 sm:py-8 lg:px-8 lg:py-10">
       <div className="mx-auto max-w-6xl">
-        <motion.div
+        <Motion.div
           initial={{ opacity: 0, y: 12 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, amount: 0.2 }}
@@ -98,14 +98,14 @@ const LatestRepositorySection = () => {
           <p className="text-sm text-dark-400">
             A quick look at my latest project and current focus.
           </p>
-        </motion.div>
+        </Motion.div>
 
-        <AnimatedBorderCard className="group overflow-hidden">
+        <AnimatedBorderCard className="group overflow-hidden" animatedBorder={false}>
           <div className="flex flex-col gap-6 lg:flex-row lg:items-start lg:justify-between">
             <div className="flex-1">
               <div className="flex flex-col gap-3 sm:flex-row sm:items-start sm:justify-between">
                 <div>
-                  <h3 className="text-lg font-semibold text-dark-100 transition-colors group-hover:text-blue-400">
+                  <h3 className="text-lg font-semibold text-dark-100 transition-colors group-hover:text-white light:group-hover:text-black">
                     {name}
                   </h3>
                   {updatedAt && (
@@ -147,7 +147,7 @@ const LatestRepositorySection = () => {
                   href={repoUrl}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="inline-flex items-center justify-center gap-2 rounded-full border border-blue-500/30 bg-blue-50 px-4 py-2.5 text-sm font-medium text-blue-700 shadow-sm transition-all duration-300 hover:-translate-y-0.5 hover:border-blue-400 hover:bg-blue-100 dark:border-white/10 dark:bg-dark-800/80 dark:text-dark-100 dark:hover:border-white/20 dark:hover:text-blue-400"
+                  className="inline-flex items-center justify-center gap-2 rounded-full border border-[#737373]/30 bg-white/60 px-4 py-2.5 text-sm font-medium text-[#111111] shadow-sm transition-all duration-300 hover:-translate-y-0.5 hover:border-[#737373] hover:bg-white/80 dark:border-white/10 dark:bg-[#111111]/70 dark:text-[#f5f5f5] dark:hover:border-white/25 dark:hover:text-white"
                 >
                   <Github size={16} />
                   View on GitHub

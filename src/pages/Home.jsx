@@ -5,7 +5,6 @@ import Projects from "../components/Projects";
 import Education from "../components/Education";
 import GithubContributions from "../components/GithubContributions";
 import Contact from "../components/Contact";
-import MeteorBackground from "../components/MeteorBackground";
 import BlogSection from "../components/BlogSection";
 import LatestRepositorySection from "../components/LatestRepositorySection";
 
@@ -17,7 +16,6 @@ const Home = () => {
       transition={{ duration: 0.5 }}
       className="max-w-4xl mx-auto"
     >
-      <MeteorBackground />
       <Hero />
       <LatestRepositorySection />
       <GithubContributions />

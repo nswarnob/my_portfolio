@@ -17,7 +17,7 @@ const ProjectsPage = () => {
       <div className="mx-auto max-w-6xl space-y-10">
         <Link
           to="/"
-          className="mb-2 inline-flex items-center gap-2 text-blue-600 transition-colors hover:text-blue-700 dark:text-blue-400 dark:hover:text-blue-300"
+          className="mb-2 inline-flex items-center gap-2 text-[#404040] transition-colors hover:text-black dark:text-[#d4d4d4] dark:hover:text-white"
         >
           <ArrowLeft size={20} />
           Back to Home
@@ -28,7 +28,7 @@ const ProjectsPage = () => {
           animate={{ opacity: 1, y: 0 }}
           className="rounded-3xl border border-slate-200 bg-white/80 p-6 shadow-sm backdrop-blur-sm dark:border-white/10 dark:bg-white/5"
         >
-          <span className="inline-flex rounded-full bg-blue-50 px-3 py-1 text-xs font-medium text-blue-700 dark:bg-blue-500/10 dark:text-blue-300">
+          <span className="inline-flex rounded-full bg-[#d4d4d4]/40 px-3 py-1 text-xs font-medium text-[#404040] dark:bg-white/10 dark:text-[#d4d4d4]">
             Selected Work
           </span>
           <h1 className="mt-4 text-3xl font-bold sm:text-4xl">

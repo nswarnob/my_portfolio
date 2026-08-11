@@ -11,11 +11,11 @@ const VIEWS = [
 ];
 
 const GITHUB_COLOR_LEVELS = [
-  "bg-slate-200 dark:bg-[#1f1f1f]",
-  "bg-emerald-200 dark:bg-[#14532d]",
-  "bg-emerald-400 dark:bg-[#15803d]",
-  "bg-emerald-500 dark:bg-[#22c55e]",
-  "bg-emerald-600 dark:bg-[#4ade80]",
+  "bg-[#ebedf0] dark:bg-[#161b22]",
+  "bg-[#9be9a8] dark:bg-[#0e4429]",
+  "bg-[#40c463] dark:bg-[#006d32]",
+  "bg-[#30a14e] dark:bg-[#26a641]",
+  "bg-[#216e39] dark:bg-[#39d353]",
 ];
 
 const GitHubActivity = ({ Calendar, username }) => {
@@ -25,14 +25,14 @@ const GitHubActivity = ({ Calendar, username }) => {
     blockMargin: 4,
     blockRadius: 3,
     fontSize: 12,
-    colorScheme: "dark",
+    colorScheme: "light",
     showColorLegend: false,
     showMonthLabels: false,
     showTotalCount: false,
     showWeekdayLabels: false,
     theme: {
-      light: ["#e2e8f0", "#bbf7d0", "#4ade80", "#16a34a", "#15803d"],
-      dark: ["#1f1f1f", "#14532d", "#15803d", "#22c55e", "#4ade80"],
+      light: ["#ebedf0", "#9be9a8", "#40c463", "#30a14e", "#216e39"],
+      dark: ["#161b22", "#0e4429", "#006d32", "#26a641", "#39d353"],
     },
     tooltips: {
       activity: {
@@ -69,7 +69,7 @@ const GitHubActivity = ({ Calendar, username }) => {
         href={`https://github.com/${username}`}
         target="_blank"
         rel="noopener noreferrer"
-        className="inline-flex items-center gap-2 text-sm font-medium text-emerald-600 transition-colors hover:text-emerald-500 dark:text-[#39d353] dark:hover:text-[#6ee7a0]"
+        className="inline-flex items-center gap-2 text-sm font-medium text-[#404040] transition-colors hover:text-black dark:text-[#d4d4d4] dark:hover:text-white"
       >
         @{username}
         <ExternalLink size={14} />
@@ -110,7 +110,7 @@ const ContributionSection = () => {
   return (
     <section className="px-4 py-8 sm:px-6 sm:py-12 lg:px-8">
       <div className="mx-auto max-w-6xl">
-        <AnimatedBorderCard padding="p-6">
+        <AnimatedBorderCard padding="p-6" animatedBorder={false}>
           <div className="mb-5 flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
             <div>
               <Motion.h3
