@@ -5,7 +5,7 @@ import { data } from "../data/portfolioData";
 const getBootMessages = () => [
   "WELCOME TO MY CLI",
   "",
-  "Type `help` to see available commands.",
+  "Type `help` to see available commands, or `back` to return to the homepage.",
   "",
 ];
 
