@@ -96,7 +96,7 @@ const Hero = () => {
             <div className="min-w-0">
               <Motion.h1
                 variants={item}
-                className="mt-4 text-xl sm:text-3xl md:text-4xl font-bold leading-tight"
+                className="-mt-2 text-xl font-bold leading-tight sm:mt-4 sm:text-3xl md:text-4xl"
               >
                 Hey, {name.split(" ")[0]} here
               </Motion.h1>
@@ -189,9 +189,9 @@ const Hero = () => {
                     download="Sharif_Uddin_Arnob_Resume.pdf"
                     whileHover={{ scale: 1.05, y: -2 }}
                     whileTap={{ scale: 0.95 }}
-                    className="resume-button-border resume-glass inline-flex w-full cursor-pointer items-center justify-center gap-1.5 rounded-full border border-transparent px-2.5 py-1.5 text-[10px] font-medium text-dark-100 transition-all duration-300 light:text-slate-900 sm:w-auto sm:gap-2 sm:px-3 sm:py-2 sm:text-xs md:px-4 md:py-2 md:text-sm"
+                    className="resume-button-border resume-glass inline-flex w-full cursor-pointer items-center justify-center gap-1 rounded-full border border-transparent px-2 py-1 text-[9px] font-medium text-dark-100 transition-all duration-300 light:text-slate-900 sm:w-auto sm:gap-2 sm:px-3 sm:py-2 sm:text-xs md:px-4 md:py-2 md:text-sm"
                   >
-                    <Download className="w-4 h-4 sm:w-4 sm:h-4 md:w-5 md:h-5" />
+                    <Download className="h-3.5 w-3.5 sm:h-4 sm:w-4 md:h-5 md:w-5" />
                     <span>Resume</span>
                   </Motion.a>
                 </div>
