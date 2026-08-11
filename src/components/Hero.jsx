@@ -110,7 +110,7 @@ const Hero = () => {
 
               <Motion.div
                 variants={item}
-                className="mt-4 flex flex-wrap items-center gap-2 sm:mt-5 md:mt-6"
+                className="mt-6 flex flex-wrap items-center gap-2 sm:mt-5 md:mt-6"
               >
                 <h4 className="text-lg sm:text-xl md:text-2xl font-medium">
                   About me
@@ -202,7 +202,7 @@ const Hero = () => {
           {/* Mobile/tablet about text */}
           <Motion.div
             variants={item}
-            className="lg:hidden text-dark-300 text-xs sm:text-sm leading-relaxed"
+            className="mt-3 text-xs leading-relaxed text-dark-300 sm:mt-0 sm:text-sm lg:hidden"
           >
             {about.map((line, idx) => (
               <p
