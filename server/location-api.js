@@ -1,9 +1,9 @@
 import http from "node:http";
 
 let currentLocation = {
-  city: "Dhaka",
+  city: "Habiganj",
   country: "Bangladesh",
-  displayText: "Dhaka, Bangladesh",
+  displayText: "Habiganj, Sylhet, Bangladesh",
   source: "server",
 };
 

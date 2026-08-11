@@ -4,19 +4,14 @@ import { motion as Motion, AnimatePresence } from "framer-motion";
 import { Menu, X, Terminal, Clock3, CloudSun } from "lucide-react";
 import ThemeToggle from "./ThemeToggle";
 import { data } from "../data/portfolioData";
-import { fetchLocation, fetchWeather } from "../services/locationService";
 
-const Navbar = ({ isDark, setIsDark }) => {
+const Navbar = ({ isDark, setIsDark, currentWeather }) => {
   const location = useLocation();
   const [isOpen, setIsOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
   const [activeSection, setActiveSection] = useState("home");
   const [currentTime, setCurrentTime] = useState("");
-  const [currentWeather, setCurrentWeather] = useState(null);
-  const [currentLocation, setCurrentLocation] = useState(null);
   const isHomePage = location.pathname === "/";
-  const currentCity = currentLocation?.city;
-  const currentCountry = currentLocation?.country;
 
   useEffect(() => {
     const handleScroll = () => {
@@ -44,45 +39,6 @@ const Navbar = ({ isDark, setIsDark }) => {
 
     return () => window.clearInterval(intervalId);
   }, []);
-
-  useEffect(() => {
-    let isMounted = true;
-
-    const loadLocation = async () => {
-      const location = await fetchLocation();
-      if (!isMounted) return;
-      setCurrentLocation(location);
-    };
-
-    loadLocation();
-    const locationIntervalId = window.setInterval(loadLocation, 15000);
-
-    return () => {
-      isMounted = false;
-      window.clearInterval(locationIntervalId);
-    };
-  }, []);
-
-  useEffect(() => {
-    let isMounted = true;
-
-    const loadWeather = async () => {
-      if (!currentCity) return;
-      const weather = await fetchWeather({
-        city: currentCity,
-        country: currentCountry,
-      });
-      if (isMounted) setCurrentWeather(weather);
-    };
-
-    loadWeather();
-    const weatherIntervalId = window.setInterval(loadWeather, 15 * 60 * 1000);
-
-    return () => {
-      isMounted = false;
-      window.clearInterval(weatherIntervalId);
-    };
-  }, [currentCity, currentCountry]);
 
   const navLinks = [
     { name: "Work", href: "#experience" },

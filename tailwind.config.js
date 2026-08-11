@@ -39,6 +39,10 @@ export default {
         "cloud-layer-near": "cloudNear 42s linear -12s infinite",
         "airplane-cross": "airplaneCross 26s ease-in-out infinite",
         "reference-streak": "referenceStreak 5s linear infinite",
+        "sun-drift": "sunDrift 12s ease-in-out infinite alternate",
+        "weather-rain": "weatherRain 1.7s linear infinite",
+        "weather-snow": "weatherSnow 6s linear infinite",
+        "birds-cross": "birdsCross 24s linear infinite",
       },
       keyframes: {
         mistDrift: {
@@ -93,6 +97,37 @@ export default {
           "70%": { opacity: "1" },
           "100%": {
             transform: "rotate(215deg) translateX(-500px)",
+            opacity: "0",
+          },
+        },
+        sunDrift: {
+          from: { transform: "translate3d(0, 0, 0)" },
+          to: { transform: "translate3d(-10px, 6px, 0)" },
+        },
+        weatherRain: {
+          from: { transform: "translate3d(0, -12vh, 0)", opacity: "0" },
+          "12%": { opacity: "0.75" },
+          to: { transform: "translate3d(-7vw, 58vh, 0)", opacity: "0" },
+        },
+        weatherSnow: {
+          from: { transform: "translate3d(0, -10vh, 0)", opacity: "0" },
+          "12%": { opacity: "0.7" },
+          "55%": { transform: "translate3d(3vw, 24vh, 0)" },
+          to: { transform: "translate3d(-2vw, 52vh, 0)", opacity: "0" },
+        },
+        birdsCross: {
+          "0%": {
+            transform: "translate3d(-14vw, 0, 0)",
+            opacity: "0",
+          },
+          "8%": { opacity: "0.7" },
+          "50%": {
+            transform: "translate3d(50vw, 3vh, 0)",
+            opacity: "0.65",
+          },
+          "92%": { opacity: "0.55" },
+          "100%": {
+            transform: "translate3d(112vw, -1vh, 0)",
             opacity: "0",
           },
         },
