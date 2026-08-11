@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { motion } from "framer-motion";
+import { motion as Motion } from "framer-motion";
 import { data } from "../data/portfolioData";
 
 const Education = () => {
@@ -10,32 +10,13 @@ const Education = () => {
 
   const visibleEducation = showAll ? education : education.slice(0, 2);
 
-  const containerVariants = {
-    hidden: { opacity: 0 },
-    visible: {
-      opacity: 1,
-      transition: {
-        staggerChildren: 0.2,
-      },
-    },
-  };
-
-  const itemVariants = {
-    hidden: { opacity: 0, x: -50 },
-    visible: {
-      opacity: 1,
-      x: 0,
-      transition: { duration: 0.5 },
-    },
-  };
-
   return (
     <section
       id="education"
       className="py-8 sm:py-12 lg:py-16 px-4 sm:px-6 lg:px-8"
     >
       <div className="max-w-6xl mx-auto">
-        <motion.h2
+        <Motion.h2
           initial={{ opacity: 0, y: 12 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, amount: 0.2 }}
@@ -43,10 +24,10 @@ const Education = () => {
           className="text-xl sm:text-2xl font-bold mb-8"
         >
           Education
-        </motion.h2>
+        </Motion.h2>
         <div className="space-y-4">
           {visibleEducation.map((edu, idx) => (
-            <motion.div
+            <Motion.div
               key={idx}
               initial={{ opacity: 0, x: -30 }}
               whileInView={{ opacity: 1, x: 0 }}
@@ -68,27 +49,27 @@ const Education = () => {
               <p className="text-sm text-dark-400 whitespace-nowrap">
                 {edu.years}
               </p>
-            </motion.div>
+            </Motion.div>
           ))}
         </div>
 
         {education.length > 2 && (
-          <motion.div
+          <Motion.div
             initial={{ opacity: 0, y: 10 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, amount: 0.2 }}
             transition={{ duration: 0.4, ease: "easeOut" }}
             className="mt-6 flex justify-center"
           >
-            <motion.button
+            <Motion.button
               whileHover={{ y: -2, scale: 1.02 }}
               whileTap={{ scale: 0.97 }}
               onClick={() => setShowAll((prev) => !prev)}
               className="rounded-lg border border-white/10 px-4 py-3 text-sm font-medium text-dark-300 transition-colors duration-300 hover:border-white/20 hover:text-dark-100"
             >
               {showAll ? "Show Less" : "More"}
-            </motion.button>
-          </motion.div>
+            </Motion.button>
+          </Motion.div>
         )}
       </div>
     </section>

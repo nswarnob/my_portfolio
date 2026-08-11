@@ -1,4 +1,4 @@
-import { motion } from "framer-motion";
+import { motion as Motion } from "framer-motion";
 import Hero from "../components/Hero";
 import Experience from "../components/Experience";
 import Projects from "../components/Projects";
@@ -10,7 +10,7 @@ import LatestRepositorySection from "../components/LatestRepositorySection";
 
 const Home = () => {
   return (
-    <motion.div
+    <Motion.div
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
       transition={{ duration: 0.5 }}
@@ -24,7 +24,7 @@ const Home = () => {
       <Education />
       <BlogSection />
       <Contact />
-    </motion.div>
+    </Motion.div>
   );
 };
 

@@ -1,4 +1,4 @@
-import { motion } from "framer-motion";
+import { motion as Motion } from "framer-motion";
 import { Link } from "react-router-dom";
 import { ArrowLeft } from "lucide-react";
 import { data } from "../data/portfolioData";
@@ -8,7 +8,7 @@ const ProjectsPage = () => {
   const { projects } = data;
 
   return (
-    <motion.div
+    <Motion.div
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
       transition={{ duration: 0.5 }}
@@ -23,7 +23,7 @@ const ProjectsPage = () => {
           Back to Home
         </Link>
 
-        <motion.div
+        <Motion.div
           initial={{ opacity: 0, y: 16 }}
           animate={{ opacity: 1, y: 0 }}
           className="rounded-3xl border border-slate-200 bg-white/80 p-6 shadow-sm backdrop-blur-sm dark:border-white/10 dark:bg-white/5"
@@ -47,7 +47,7 @@ const ProjectsPage = () => {
               Live demo + source code
             </span>
           </div>
-        </motion.div>
+        </Motion.div>
 
         <div className="grid grid-cols-1 gap-6 md:grid-cols-2">
           {projects.map((project, idx) => (
@@ -55,7 +55,7 @@ const ProjectsPage = () => {
           ))}
         </div>
       </div>
-    </motion.div>
+    </Motion.div>
   );
 };
 

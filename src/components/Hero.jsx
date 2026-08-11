@@ -18,20 +18,18 @@ const Hero = () => {
   const [greeting, setGreeting] = useState("");
 
   useEffect(() => {
-    let animationFrameId;
-
     const updateAge = () => {
       const birth = new Date(dob);
       const ageInYears =
         (Date.now() - birth.getTime()) / (1000 * 60 * 60 * 24 * 365.25);
 
       setAge(ageInYears);
-      animationFrameId = requestAnimationFrame(updateAge);
     };
 
-    animationFrameId = requestAnimationFrame(updateAge);
+    updateAge();
+    const intervalId = window.setInterval(updateAge, 100);
 
-    return () => cancelAnimationFrame(animationFrameId);
+    return () => window.clearInterval(intervalId);
   }, [dob]);
 
   useEffect(() => {
@@ -84,7 +82,7 @@ const Hero = () => {
   return (
     <section
       id="home"
-      className="relative isolate px-4 pb-2 pt-12 sm:px-6 sm:pt-16 lg:px-8 lg:pt-24"
+      className="relative isolate px-4 pb-2 pt-20 sm:px-6 sm:pt-20 lg:px-8 lg:pt-24"
     >
       <div className="relative z-10 px-4 sm:px-6 my-8">
         <Motion.div
@@ -119,7 +117,7 @@ const Hero = () => {
                 </h4>
                 <span
                   aria-hidden="true"
-                  className="mx-1 h-4 w-px rounded-full bg-[#737373]/50 dark:bg-white/25 sm:h-5"
+                  className="h-4 w-px rounded-full bg-[#737373]/50 dark:bg-white/25 sm:h-5"
                 />
                 <Motion.a
                   href="https://www.google.com/search?q=Who+is+Sharif+Uddin+Arnob&udm=50"
@@ -127,7 +125,7 @@ const Hero = () => {
                   rel="noopener noreferrer"
                   title="See what the internet says about me."
                   whileTap={{ scale: 0.95 }}
-                  className="group inline-flex items-center gap-1.5 rounded-full border border-transparent px-2.5 py-1 text-[10px] font-medium text-dark-100 backdrop-blur-sm transition-all duration-300 light:text-slate-900 sm:px-3 sm:py-1.5 sm:text-xs md:px-4 md:py-2 md:text-sm"
+                  className="group inline-flex items-center gap-1.5 rounded-full border border-transparent py-1 text-[10px] font-medium text-dark-100 backdrop-blur-sm transition-all duration-300 light:text-slate-900 sm:py-1.5 sm:text-xs md:py-2 md:text-sm"
                 >
                   <span className="inline-flex h-5 w-5 items-center justify-center rounded-full border border-transparent resume-button-border transition-all duration-300 sm:h-6 sm:w-6">
                     <Search className="h-3.5 w-3.5 sm:h-4 sm:w-4" />
@@ -217,10 +215,10 @@ const Hero = () => {
 
           <Motion.div
             variants={item}
-            className="flex gap-3 sm:gap-4"
+            className="flex w-fit items-center gap-2 sm:gap-3"
             transition={{ duration: 0.4, ease: "easeOut" }}
           >
-            {socials.map((s) => {
+            {socials.filter((s) => socialIcons[s.icon]).map((s) => {
               const Icon = socialIcons[s.icon];
               return (
                 <Motion.a
@@ -230,9 +228,9 @@ const Hero = () => {
                   rel="noopener noreferrer"
                   whileHover={{ scale: 1.12, y: -2 }}
                   whileTap={{ scale: 0.95 }}
-                  className="text-dark-300 transition-colors duration-300 hover:text-dark-100 light:text-slate-600 light:hover:text-slate-900"
+                  className="inline-flex size-9 items-center justify-center text-dark-300 transition-colors duration-300 hover:text-dark-100 light:text-slate-600 light:hover:text-slate-900 sm:size-10"
                 >
-                  {Icon && <Icon size={24} />}
+                  <Icon size={24} />
                 </Motion.a>
               );
             })}

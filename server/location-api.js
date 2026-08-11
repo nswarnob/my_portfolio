@@ -31,7 +31,7 @@ const server = http.createServer((req, res) => {
             incoming.displayText ||
             [incoming.city, incoming.country].filter(Boolean).join(", "),
         };
-      } catch (error) {
+      } catch {
         currentLocation = {
           ...currentLocation,
           source: "server-error",

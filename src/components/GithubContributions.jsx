@@ -19,13 +19,17 @@ const GITHUB_COLOR_LEVELS = [
 ];
 
 const GitHubActivity = ({ Calendar, username }) => {
+  const colorScheme = document.documentElement.classList.contains("dark")
+    ? "dark"
+    : "light";
+
   const calendar = React.createElement(Calendar, {
     username,
     blockSize: 13,
     blockMargin: 4,
     blockRadius: 3,
     fontSize: 12,
-    colorScheme: "light",
+    colorScheme,
     showColorLegend: false,
     showMonthLabels: false,
     showTotalCount: false,

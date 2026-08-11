@@ -33,11 +33,6 @@ export default {
         },
       },
       animation: {
-        "slide-down": "slideDown 0.3s ease-out",
-        "fade-in": "fadeIn 0.5s ease-in",
-        "slide-up": "slideUp 0.5s ease-out",
-        "pulse-glow": "pulseGlow 2s ease-in-out infinite",
-        "border-move": "borderMove 8s linear infinite",
         "mist-drift": "mistDrift 32s ease-in-out infinite alternate",
         "cloud-layer-far": "cloudFar 60s linear infinite",
         "cloud-layer-mid": "cloudMid 50s linear -18s infinite",
@@ -46,26 +41,6 @@ export default {
         "reference-streak": "referenceStreak 5s linear infinite",
       },
       keyframes: {
-        slideDown: {
-          "0%": { transform: "translateY(-100%)", opacity: "0" },
-          "100%": { transform: "translateY(0)", opacity: "1" },
-        },
-        fadeIn: {
-          "0%": { opacity: "0" },
-          "100%": { opacity: "1" },
-        },
-        slideUp: {
-          "0%": { transform: "translateY(30px)", opacity: "0" },
-          "100%": { transform: "translateY(0)", opacity: "1" },
-        },
-        pulseGlow: {
-          "0%, 100%": { opacity: "0.5" },
-          "50%": { opacity: "1" },
-        },
-        borderMove: {
-          "0%": { backgroundPosition: "0% 50%" },
-          "100%": { backgroundPosition: "200% 50%" },
-        },
         mistDrift: {
           from: { transform: "translate3d(-3%, -2%, 0) scale(1)" },
           to: { transform: "translate3d(4%, 3%, 0) scale(1.05)" },

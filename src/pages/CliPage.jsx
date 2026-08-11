@@ -86,8 +86,6 @@ const CliPage = () => {
     setInput("");
   };
 
-  const quickCommands = ["help", "about", "skills", "projects", "contact"];
-
   return (
     <section className="min-h-screen px-4 pb-20 pt-24 sm:px-6 lg:px-8">
       <div className="mx-auto max-w-5xl">

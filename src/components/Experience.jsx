@@ -1,5 +1,5 @@
 import { data } from "../data/portfolioData";
-import { motion } from "framer-motion";
+import { motion as Motion } from "framer-motion";
 
 const Experience = () => {
   const { experience } = data;
@@ -12,23 +12,23 @@ const Experience = () => {
       className="py-8 sm:py-12 lg:py-16 px-4 sm:px-6 lg:px-8"
     >
       <div className="max-w-6xl mx-auto">
-        <motion.h2
+        <Motion.h2
           initial={{ opacity: 0 }}
           whileInView={{ opacity: 1 }}
           viewport={{ once: true }}
           className="text-xl sm:text-2xl font-bold mb-8"
         >
           Experience
-        </motion.h2>
+        </Motion.h2>
 
-        <motion.div
+        <Motion.div
           initial={{ opacity: 0 }}
           whileInView={{ opacity: 1 }}
           viewport={{ once: true }}
           className="space-y-4"
         >
           {experience.map((exp, idx) => (
-            <motion.div
+            <Motion.div
               key={idx}
               initial={{ opacity: 0, x: -20 }}
               whileInView={{ opacity: 1, x: 0 }}
@@ -61,9 +61,9 @@ const Experience = () => {
                   </p>
                 </div>
               </div>
-            </motion.div>
+            </Motion.div>
           ))}
-        </motion.div>
+        </Motion.div>
       </div>
     </section>
   );

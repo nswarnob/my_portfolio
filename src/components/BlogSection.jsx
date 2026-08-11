@@ -1,4 +1,4 @@
-import { motion } from "framer-motion";
+import { motion as Motion } from "framer-motion";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Autoplay } from "swiper/modules";
 import { ArrowUpRight } from "lucide-react";
@@ -41,24 +41,24 @@ export default function BlogSection() {
   return (
     <section id="writing" className="px-4 sm:px-6 lg:px-8 py-14 sm:py-16">
       <div className="mx-auto max-w-6xl">
-        <motion.div
+        <Motion.div
           variants={containerVariants}
           initial="hidden"
           whileInView="show"
           viewport={{ once: true, amount: 0.15 }}
         >
           {/* Section Header */}
-          <motion.div
+          <Motion.div
             variants={itemVariants}
             className="flex flex-col gap-5 md:flex-row md:items-end md:justify-between"
           >
             <div className="space-y-2 ">
               <h2 className="text-xl sm:text-2xl font-bold mb-8">Articles</h2>
             </div>
-          </motion.div>
+          </Motion.div>
 
           {/* Blog Slider */}
-          <motion.div variants={itemVariants}>
+          <Motion.div variants={itemVariants}>
             <Swiper
               modules={[Autoplay]}
               spaceBetween={20}
@@ -133,8 +133,8 @@ export default function BlogSection() {
                 </SwiperSlide>
               ))}
             </Swiper>
-          </motion.div>
-        </motion.div>
+          </Motion.div>
+        </Motion.div>
       </div>
     </section>
   );

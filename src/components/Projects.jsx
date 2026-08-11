@@ -1,4 +1,4 @@
-import { motion } from "framer-motion";
+import { motion as Motion } from "framer-motion";
 import { Link } from "react-router-dom";
 import { data } from "../data/portfolioData";
 import ProjectCard from "./ProjectCard";
@@ -14,7 +14,7 @@ const Projects = () => {
       className="py-8 sm:py-12 lg:py-16 px-4 sm:px-6 lg:px-8"
     >
       <div className="max-w-6xl mx-auto">
-        <motion.h2
+        <Motion.h2
           initial={{ opacity: 0, y: 12 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, amount: 0.2 }}
@@ -22,7 +22,7 @@ const Projects = () => {
           className="text-xl sm:text-2xl font-bold mb-8"
         >
           Featured Projects
-        </motion.h2>
+        </Motion.h2>
 
         <div className="grid grid-cols-1 gap-6 md:grid-cols-2 xl:grid-cols-3 mb-8">
           {projects.slice(0, 3).map((proj, idx) => (
@@ -30,7 +30,7 @@ const Projects = () => {
           ))}
         </div>
 
-        <motion.div
+        <Motion.div
           initial={{ opacity: 0, y: 12 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, amount: 0.2 }}
@@ -42,7 +42,7 @@ const Projects = () => {
           >
             VIEW ALL PROJECTS →
           </Link>
-        </motion.div>
+        </Motion.div>
       </div>
     </section>
   );

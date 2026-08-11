@@ -1,5 +1,10 @@
 const STORAGE_KEY = "portfolio-location";
 const API_ENDPOINT = "/api/location";
+const LOCATION_CACHE_TTL = 10000;
+
+let cachedLocation = null;
+let cachedAt = 0;
+let locationRequest = null;
 
 export const getDefaultLocation = () => ({
   city: "Dhaka",
@@ -25,50 +30,42 @@ export const fetchLocation = async () => {
     return getDefaultLocation();
   }
 
-  try {
-    const response = await fetch(`${API_ENDPOINT}?t=${Date.now()}`);
-    if (response.ok) {
-      const remoteLocation = await response.json();
-      if (remoteLocation?.displayText) {
-        window.localStorage.setItem(
-          STORAGE_KEY,
-          JSON.stringify(remoteLocation),
-        );
-        return remoteLocation;
+  if (cachedLocation && Date.now() - cachedAt < LOCATION_CACHE_TTL) {
+    return cachedLocation;
+  }
+
+  if (locationRequest) return locationRequest;
+
+  locationRequest = (async () => {
+    try {
+      const response = await fetch(`${API_ENDPOINT}?t=${Date.now()}`);
+      if (response.ok) {
+        const remoteLocation = await response.json();
+        if (remoteLocation?.displayText) {
+          window.localStorage.setItem(
+            STORAGE_KEY,
+            JSON.stringify(remoteLocation),
+          );
+          cachedLocation = remoteLocation;
+          cachedAt = Date.now();
+          return remoteLocation;
+        }
       }
+    } catch (error) {
+      console.warn("Location API unavailable, using fallback data", error);
     }
-  } catch (error) {
-    console.warn("Location API unavailable, using fallback data", error);
-  }
 
-  return getStoredLocation() || getDefaultLocation();
-};
-
-export const submitLocation = async (locationData) => {
-  if (typeof window === "undefined") {
-    return locationData;
-  }
-
-  const normalized = {
-    ...locationData,
-    displayText:
-      locationData.displayText ||
-      [locationData.city, locationData.country].filter(Boolean).join(", "),
-  };
+    const fallbackLocation = getStoredLocation() || getDefaultLocation();
+    cachedLocation = fallbackLocation;
+    cachedAt = Date.now();
+    return fallbackLocation;
+  })();
 
   try {
-    await fetch(API_ENDPOINT, {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify(normalized),
-    });
-  } catch (error) {
-    console.warn("Location update could not reach the API", error);
+    return await locationRequest;
+  } finally {
+    locationRequest = null;
   }
-
-  window.localStorage.setItem(STORAGE_KEY, JSON.stringify(normalized));
-
-  return normalized;
 };
 
 const getWeatherIcon = (weatherCode) => {

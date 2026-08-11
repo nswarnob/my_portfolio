@@ -1,4 +1,4 @@
-import { motion } from "framer-motion";
+import { motion as Motion } from "framer-motion";
 import { MapPin } from "lucide-react";
 import { data } from "../data/portfolioData";
 import { useState, useEffect } from "react";
@@ -34,13 +34,13 @@ const Footer = () => {
   return (
     <footer className="py-8 sm:py-12 px-4 sm:px-6 lg:px-8 border-t border-white/10">
       <div className="max-w-6xl mx-auto">
-        <motion.div
+        <Motion.div
           initial={{ opacity: 0 }}
           whileInView={{ opacity: 1 }}
           viewport={{ once: true }}
           className="flex flex-col items-center gap-6 text-sm text-dark-400"
         >
-          <motion.div
+          <Motion.div
             initial={{ opacity: 0, y: 8 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
@@ -59,9 +59,9 @@ const Footer = () => {
                 {currentLocation?.displayText || "Habiganj, Sylhet, Bangladesh"}
               </span>
             </span>
-          </motion.div>
+          </Motion.div>
 
-          <div className="flex flex-col md:flex-row justify-between items-center gap-6 w-full text-sm text-dark-400">
+          <div className="flex w-full flex-col items-center gap-6 text-sm text-dark-400 md:flex-row md:justify-between">
             <div className="text-center md:text-left">
               <p>
                 © {year} {data.name}. All rights reserved.
@@ -78,29 +78,8 @@ const Footer = () => {
                 </a>
               </p>
             </div>
-
-            <div className="flex gap-6 text-xs display-none">
-              <a
-                href="#"
-                className="text-dark-400 hover:text-dark-100 transition-colors"
-              >
-                Privacy
-              </a>
-              <a
-                href="#"
-                className="text-dark-400 hover:text-dark-100 transition-colors"
-              >
-                Sitemap
-              </a>
-              <a
-                href="#"
-                className="text-dark-400 hover:text-dark-100 transition-colors"
-              >
-                RSS
-              </a>
-            </div>
           </div>
-        </motion.div>
+        </Motion.div>
       </div>
     </footer>
   );

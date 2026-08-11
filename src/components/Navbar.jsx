@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import { Link, useLocation } from "react-router-dom";
-import { motion, AnimatePresence } from "framer-motion";
+import { motion as Motion, AnimatePresence } from "framer-motion";
 import { Menu, X, Terminal, Clock3, CloudSun } from "lucide-react";
 import ThemeToggle from "./ThemeToggle";
 import { data } from "../data/portfolioData";
@@ -15,18 +15,17 @@ const Navbar = ({ isDark, setIsDark }) => {
   const [currentWeather, setCurrentWeather] = useState(null);
   const [currentLocation, setCurrentLocation] = useState(null);
   const isHomePage = location.pathname === "/";
+  const currentCity = currentLocation?.city;
+  const currentCountry = currentLocation?.country;
 
   useEffect(() => {
     const handleScroll = () => {
       setIsScrolled(window.scrollY > 50);
     };
-    window.addEventListener("scroll", handleScroll);
+    handleScroll();
+    window.addEventListener("scroll", handleScroll, { passive: true });
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
-
-  useEffect(() => {
-    setIsOpen(false);
-  }, [location.pathname]);
 
   useEffect(() => {
     const updateTime = () => {
@@ -68,8 +67,11 @@ const Navbar = ({ isDark, setIsDark }) => {
     let isMounted = true;
 
     const loadWeather = async () => {
-      if (!currentLocation?.city) return;
-      const weather = await fetchWeather(currentLocation);
+      if (!currentCity) return;
+      const weather = await fetchWeather({
+        city: currentCity,
+        country: currentCountry,
+      });
       if (isMounted) setCurrentWeather(weather);
     };
 
@@ -80,7 +82,7 @@ const Navbar = ({ isDark, setIsDark }) => {
       isMounted = false;
       window.clearInterval(weatherIntervalId);
     };
-  }, [currentLocation?.city, currentLocation?.country]);
+  }, [currentCity, currentCountry]);
 
   const navLinks = [
     { name: "Work", href: "#experience" },
@@ -106,6 +108,7 @@ const Navbar = ({ isDark, setIsDark }) => {
           {/* Logo */}
           <Link
             to="/"
+            onClick={() => setIsOpen(false)}
             className="font-bold text-xl text-slate-900 sm:text-2xl dark:text-dark-100"
           >
             {data.name.split(" ")[0]}
@@ -144,6 +147,7 @@ const Navbar = ({ isDark, setIsDark }) => {
             </div>
             <Link
               to="/cli"
+              onClick={() => setIsOpen(false)}
               className="rounded-lg bg-slate-100 p-1.5 text-slate-700 transition-colors hover:bg-slate-200 dark:bg-dark-800 dark:text-dark-100 dark:hover:bg-dark-700"
               aria-label="CLI mode"
               title="Open CLI"
@@ -168,7 +172,7 @@ const Navbar = ({ isDark, setIsDark }) => {
         {/* Mobile Navigation */}
         <AnimatePresence>
           {isHomePage && isOpen && (
-            <motion.div
+            <Motion.div
               initial={{ opacity: 0, height: 0 }}
               animate={{ opacity: 1, height: "auto" }}
               exit={{ opacity: 0, height: 0 }}
@@ -190,7 +194,7 @@ const Navbar = ({ isDark, setIsDark }) => {
                   </a>
                 ))}
               </div>
-            </motion.div>
+            </Motion.div>
           )}
         </AnimatePresence>
       </div>
