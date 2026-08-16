@@ -50,7 +50,9 @@ const MonochromeBackground = ({ weather }) => {
   const backgroundRef = useRef(null);
   const weatherMode = getWeatherMode(weather?.code);
   const showClouds = weatherMode !== "clear";
-  const showSun = weatherMode === "clear" || weatherMode === "partly-cloudy";
+  const showCelestial =
+    weatherMode === "clear" || weatherMode === "partly-cloudy";
+  const isNight = weather?.isDay === false;
   const showRain = weatherMode === "rain" || weatherMode === "storm";
   const showSnow = weatherMode === "snow";
   const showBirds = weatherMode === "clear" && weather?.isDay !== false;
@@ -80,14 +82,20 @@ const MonochromeBackground = ({ weather }) => {
 
       <div className="absolute inset-0 animate-mist-drift bg-[radial-gradient(ellipse_at_24%_68%,rgba(115,115,115,0.13),transparent_44%),radial-gradient(ellipse_at_78%_18%,rgba(212,212,212,0.2),transparent_38%)] will-change-transform [animation-play-state:var(--atmosphere-play-state)] dark:bg-[radial-gradient(ellipse_at_24%_68%,rgba(115,115,115,0.14),transparent_44%),radial-gradient(ellipse_at_78%_18%,rgba(212,212,212,0.08),transparent_38%)]" />
 
-      {showSun && (
-        <div
-          className={`absolute left-[7%] top-[9%] size-16 animate-sun-drift rounded-full will-change-transform [animation-play-state:var(--atmosphere-play-state)] sm:size-20 lg:size-24 ${
-            weather?.isDay === false
-              ? "bg-[#d4d4d4]/75 shadow-[0_0_45px_rgba(212,212,212,0.2)] dark:bg-[#d4d4d4]/60"
-              : "bg-white/90 shadow-[0_0_60px_rgba(255,255,255,0.5)] dark:bg-[#f5f5f5]/75 dark:shadow-[0_0_65px_rgba(255,255,255,0.18)]"
-          }`}
-        />
+      {showCelestial && (
+        <div className="absolute left-[7%] top-[9%] size-16 animate-sun-drift will-change-transform [animation-play-state:var(--atmosphere-play-state)] sm:size-20 lg:size-24">
+          {isNight ? (
+            <svg
+              viewBox="0 0 100 100"
+              className="h-full w-full overflow-visible fill-[#d4d4d4]/80 drop-shadow-[0_0_14px_rgba(212,212,212,0.22)] dark:fill-[#f5f5f5]/70"
+              focusable="false"
+            >
+              <path d="M74 78A42 42 0 1 1 58 10a34 34 0 0 0 16 68Z" />
+            </svg>
+          ) : (
+            <div className="h-full w-full rounded-full bg-white/90 shadow-[0_0_60px_rgba(255,255,255,0.5)] dark:bg-[#f5f5f5]/75 dark:shadow-[0_0_65px_rgba(255,255,255,0.18)]" />
+          )}
+        </div>
       )}
 
       {showBirds && (
